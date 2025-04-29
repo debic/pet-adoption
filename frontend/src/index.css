@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  }
+
+body {
+  margin: 0;
+  margin-top: 5rem;
+}
+
+h1{
+  font-family: 'Nohemi', sans-serif;
+  color: #8A5D3B;
+  font-weight: 400;
+  font-size: 4vw;
+  margin: 0%;
+  margin-bottom: 1vw;
+}
+
+h2{
+  font-family: 'Nohemi', sans-serif;
+  color: #8A5D3B;
+  font-weight: 400;
+  font-size: 2vw;
+  margin: 0%;
+  margin-bottom: 1vw;
+
+}
+
+h3{
+  font-family: 'Nohemi', sans-serif;
+  color: #8A5D3B;
+  font-weight: 300;
+  font-size: 1.5vw;
+  margin: 0%;
+}
+
+p{
+  font-size: 1.1vw;
+  font-weight: 300;
+  margin: 0px;
+  color: black;
+}
+
+a{
+  font-size: 1.1vw;
+  font-weight: 300;
+  margin: 0px;
+  color: black;
+}
+
+.slide-in-left-enter {
+  transform: translateX(-100%);
+}
+
+.slide-in-left-enter-active {
+  transform: translateX(0);
+  opacity: 1;
+  transition: all 200ms;
+}
+
+.slide-in-left-exit {
+  transform: translateX(0%);
+  opacity: 1;
+}
+
+.slide-in-left-exit-active {
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 200ms;
+}
+
+.center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+
+  h1{
+    font-size: 6vw;
+    margin: 0%;
+    margin-bottom: 2vw;
+  }
+  h2{
+    font-size: 4vw;
+  }
+  h3{
+    font-size: 2vw;
+  }
+p{
+  font-size: 2vw !important;
+}
+}

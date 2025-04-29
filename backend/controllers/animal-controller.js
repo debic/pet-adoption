@@ -1,0 +1,244 @@
+const uuid = require("uuid");
+const { validationResult } = require("express-validator");
+const HttpError = require("../models/http-error");
+const Animal = require("../models/animals");
+const User = require('../models/user')
+const mongoose = require('mongoose');
+
+
+const getAnimalById = async (req, res, next) => {
+  const animalId = req.params.aId;
+  let animal;
+
+  //This error is throw if there is something generaly wrong, like wrong format
+  try {
+    //findByid is a moongose method, doesnt return a promese. This can take a moment so we use async await
+    animal = await Animal.findById(animalId);
+  } catch (err) {
+    const error = new HttpError(
+      "Something went wrong, couldnt find an animal",
+      500
+    );
+    return next(error);
+  }
+
+  //This error is throw if the request was correct, but there wasnt find a animal with that id
+  if (!animal) {
+    const error = new HttpError(
+      "couldnt find a animal for the provided id",
+      404
+    );
+    return next(error);
+  }
+
+  //for returning it as a normal js object
+  res.json({ animal: animal.toObject({ getters: true }) });
+};
+
+
+
+const getAllAnimals = async(req, res, next) =>{
+  let animals;
+
+  try{
+      //find everything but not the password
+      animals = await Animal.find({}, '-password');
+  }catch(err){
+      const error = new HttpError(
+          'Fetching animals failed',
+          500
+      )
+      return next(error)
+  }
+  res.json({animals: animals.map(animal => animal.toObject({getters:true}))})
+
+}
+
+
+
+
+const getAnimalsByUserId = async (req, res, next) => {
+  const userId = req.params.uId;
+
+  //let animal;
+let userWithAnimals
+  try {
+    userWithAnimals = await User.findById(userId).populate('animals');
+  } catch (err) {
+    const error = new HttpError("fetching places faild", 500);
+    return next(error);
+  }
+
+  if (!userWithAnimals || userWithAnimals.animals.length === 0) {
+    return next(
+      new HttpError("couldn find a animals for the provided user id", 404)
+    );
+  }
+
+  res.json({
+    animals: userWithAnimals.animals.map((animal) => animal.toObject({ getters: true })),
+  });
+};
+
+
+
+
+
+const addAnimal = async (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    return next(
+      new HttpError("Invalid inputs passed, please check your data.", 422)
+    );
+  }
+  const { name, info, type, creator, gender, age, weight } = req.body;
+
+  //This structure is predifined by the scheema, if it doesnt have the same structure it will throw an error
+  const newAnimal = new Animal({
+    name,
+    info,
+    imageURL:
+      "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg.webp",
+    type,
+    age,
+    weight,
+    gender,
+    creator,
+  });
+
+//here we see if there is an user with the existing ID
+let user;
+try {
+  user = await User.findById(creator);
+} catch (err) {
+  const error = new HttpError('Could not find user for the provided id', 500);
+  return next(error);
+}
+
+if (!user) {
+  const error = new HttpError('Could not find user for provided id', 404);
+  return next(error);
+}
+
+try {
+  const sess = await mongoose.startSession();
+  sess.startTransaction();
+  await newAnimal.save({ session: sess });
+  user.animals.push(newAnimal);
+  await user.save({ session: sess });
+  await sess.commitTransaction();
+} catch (err) {
+  const error = new HttpError(
+    'Creating place failed, please try again.',
+    500
+  );
+  return next(error);
+}
+console.log(newAnimal)
+res.status(201).json({ animal: newAnimal });
+};
+
+
+
+
+
+
+
+const updateAnimalById = async (req, res, next) => {
+  const errors = validationResult(req);
+
+  if (!errors.isEmpty()) {
+    console.log(errors);
+    return next (
+      new HttpError("Invalid inputs, please check your data", 422)
+    );
+  }
+  const { name, info, type, imageURL } = req.body;
+  const animalId = req.params.aid;
+
+  let animal;
+
+  try {
+    animal = await Animal.findById(animalId);
+  } catch (err) {
+    const error = new HttpError(
+      "Soemthing went wrong, could not update place",
+      500
+    );
+    return next(error);
+  }
+
+  //Here we change the data
+  animal.name = name;
+  animal.info = info;
+  animal.type = type;
+
+  //here the data is been update
+  try {
+    await animal.save();
+  } catch (err) {
+    const errpr = new HttpError(
+      "Something went wrong, could not update place",
+      500
+    );
+    return next(error);
+  }
+
+  res.status(200).json({ animal: animal.toObject({ getters: true }) });
+};
+
+
+
+
+
+const deleteAnimalById = async (req, res, next) => {
+  const animalId = req.params.aid;
+
+  let animal;
+  try {
+    //the populate method only works because we add the ref parameter in the modles files
+    animal = await Animal.findById(animalId).populate('creator');
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not find animal.',
+      500
+    );
+    return next(error);
+  }
+
+ if(!animal){
+  const error = new HttpError(
+    'Could not find a animal for this id.',
+    500
+  );
+  return next(error);
+ }
+
+  try {
+    const sess = await mongoose.startSession();
+    sess.startTransaction();
+    await animal.deleteOne({session:sess});
+    animal.creator.animals.pull(animal);
+    await animal.creator.save({session:sess})
+    await sess.commitTransaction();
+  } catch (err) {
+    const error = new HttpError(
+      'Something went wrong, could not delete animal.',
+      500
+    );
+    return next(error);
+  }
+
+  res.status(200).json({ message: 'Deleted animal.' });
+};
+
+
+
+
+exports.getAnimalById = getAnimalById;
+exports.getAllAnimals = getAllAnimals;
+exports.getAnimalsByUserId = getAnimalsByUserId;
+exports.addAnimal = addAnimal;
+exports.updateAnimalById = updateAnimalById;
+exports.deleteAnimalById = deleteAnimalById;

@@ -1,0 +1,48 @@
+/* FORM */
+
+.form-control{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 2vw;
+  }
+
+  .form-control label{
+    margin-bottom: 0.8vw;
+  }
+
+  .whiteLabel{
+    color: #ffffff;
+  }
+
+  .blackLabel{
+    color:black;
+  }
+
+  .form-control--invalid .label{
+ color: #BC5353;
+  }
+
+  .form-control--invalid input {
+    border: 2px solid #BC5353;
+    border-style: solid;
+  }
+
+  .form-control--invalid p {
+    color: #BC5353;
+  }
+
+/* INPUT */
+
+input{
+    border-radius: 50px;
+    border-style:solid;
+    padding: 0.8vw 2vw;
+}
+
+
+
+  .animal-form{
+    display: flex;
+    flex-direction: column;
+  }

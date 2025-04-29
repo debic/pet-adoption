@@ -1,0 +1,107 @@
+
+
+.animal-list{
+    width: 64vw;
+    padding: 0vw;
+    gap: 5vw;
+    margin-top: 2vw;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative; /* ya no absolute */
+
+}
+
+
+.animal-item{
+    background-color: rgb(255, 255, 255);
+    border-radius: 0.8vw;
+    width: 18vw;
+    height: 24vw;
+}
+
+.animal-item-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.animal-item-title h3{
+    color: white;
+}
+
+.animal-item-gender{
+    width: 1.5vw;
+}
+
+.animal-item-image-div{
+    height: 15vw;
+   padding-bottom: 0px;
+   overflow: hidden;
+   border-radius: 0.8vw;
+
+}
+
+.animal-item-image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+   
+}
+
+.animal-item-info{
+    padding: 2vw;
+}
+
+.animal-item-short-info{
+    display: flex;
+    gap: 0.5vw;
+    margin-top: 0.5vw;
+    margin-bottom: 0.5vw;
+    font-weight: 400;
+}
+
+.animal-item-long-info{
+    color: rgb(255, 255, 255) !important;
+    font-size: 1vw;
+}
+
+.shortInfo{
+    color: rgb(220, 220, 220) !important;
+    font-size: 1vw;
+}
+
+
+.descriptionPadding{
+    padding: 1vw 0vw;
+}
+.animal-item-btns{
+    display: flex;
+    gap: 1vw
+}
+
+@media only screen and (max-width: 768px) {
+    .animal-list{
+      width: 100%;
+        padding: 0vw;
+
+    
+    }
+    .animal-item{
+        width: 29.5vw;
+        height: 34vw;
+        border-radius: 2vw;
+    }
+
+    .animal-item-image-div{
+        height: 20vw;
+        border-radius: 2vw;
+    }
+
+    .animal-item-image{
+        width: 29.5vw;
+        height: 30vw;
+    }
+    .animal-item-info{
+        padding: 3vw;
+    }
+}

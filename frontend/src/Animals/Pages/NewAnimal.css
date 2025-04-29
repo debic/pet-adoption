@@ -1,0 +1,17 @@
+.form-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-section h2{
+    margin-bottom: 1vw;
+    margin-top: 6vw;
+}
+
+.animal-form{
+    width: 40vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}

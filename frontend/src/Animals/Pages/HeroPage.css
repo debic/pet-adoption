@@ -1,0 +1,340 @@
+.hero {
+  background-color: #8a5d3b;
+}
+
+.hero-round-corners {
+  border-radius: 0px 0px 5vw 5vw;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  height: 45vw;
+}
+
+.image-hero-div {
+  width: 45vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-hero {
+  width: 180%;
+  height: 180%;
+  object-fit: contain;
+  object-position: 18% 65%;
+}
+
+.info-hero-size {
+  width: 30vw !important;
+}
+.info-hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 55vw;
+  align-items: center;
+  background-color: #f4f3f2;
+}
+
+.info-hero-text p {
+ 
+  font-weight: 300;
+  line-height: 1.2;
+  font-size: 1.1vw;
+  margin-bottom: 1.8vw;
+  width: 28vw;
+  color: #3a3a3a;
+}
+
+.info-hero-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1.5vw;
+}
+
+.info-hero-btn p {
+  margin: 0%;
+  width: max-content;
+}
+
+.social-image-adopted {
+  width: 5vw;
+}
+
+.info-hero-vertical-line {
+  width: 2px;
+  height: 2.5vw;
+  background-color: #8a5d3b;
+  margin: 0 0px;
+}
+
+.values-section {
+  display: flex;
+  flex-direction: column;
+  background-color: #8a5d3b;
+  padding: 8vw 15vw;
+}
+
+.values-section h2 {
+  color: white;
+  margin-bottom: 6vw;
+  margin-left: 2vw;
+}
+
+.white-text {
+  color: white;
+}
+
+.values-section-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.values-section-single-item {
+  width: 22vw;
+  height: 18vw;
+  display: flex;
+  flex-direction: column;
+  align-items: self-start;
+  justify-content: space-between;
+  padding: 1.5vw;
+  border-radius: 1.5vw;
+}
+
+.rotate-left {
+  transform: rotate(-20deg);
+}
+
+.rotate-right {
+  transform: rotate(25deg);
+}
+
+.values-section-dark-brown {
+  background-color: #553e29;
+}
+
+.values-section-white {
+  background-color: white;
+}
+
+.values-section-grey {
+  background-color: #e0dddc;
+}
+
+.values-icon {
+  height: 2vw;
+}
+
+.justArrivingSection {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding: 8vw 18vw;
+}
+
+.animals-section-list {
+  position: relative; /* el contenedor padre */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.justArrivingSection p {
+  color: #3a3a3a;
+  font-weight: 400;
+}
+
+.animals-section-image-div {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0vw;
+  right: 0vw;
+  width: 41vw; /* ajustalo según el diseño */
+  height: 24vw;
+  z-index: -1; /* si querés que no tape el contenido */
+  border-radius: 0.8vw;
+}
+
+.animals-section-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.process-section {
+    position: relative;
+  padding: 8vw 18vw;
+  background-color: #8a5d3b;
+  display: flex;
+  flex-direction: column;
+}
+
+.process-section-title {
+  color: white;
+  margin-bottom: 3vw;
+}
+
+.process-section-content {
+    display: flex;
+    flex-direction: row; /* Esto ya lo tienes, mantiene los divs en fila */
+    justify-content: space-between; /* Para que haya espacio entre los divs */
+    align-items: center;
+}
+
+.process-steps-div{
+    width: 48%; /* Ajusta el ancho de cada div para que no se superpongan */
+  display: flex;
+  flex-direction: column;
+  gap: 3vw;
+}
+
+.process-steps-item{
+    padding: 2vw;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    border-radius: 0.8vw;
+}
+
+.light-brown-background{
+    background-color: #A48269;
+}
+
+.dark-brown-background{
+    background-color: #553E29;
+}
+
+.dark-background{
+    background-color: #2D2D2D;
+}
+
+.process-steps-item-content{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6vw;
+}
+
+.process-steps-item h3{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 1.2vw;
+  color: white;
+}
+
+.process-steps-item-number{
+    font-size: 5.5vw;
+    color: white;
+}
+
+.process-steps-item-text{
+    color: white;
+}
+
+.process-circle-effect{
+margin-right: 9vw;
+
+}
+
+.process-circle-effect p{
+    font-size: 4vw;
+    letter-spacing: 8px;
+    color: white;
+    text-align: center;
+    font-family: 'Nohemi', sans-serif;
+}
+
+@media only screen and (max-width: 768px) {
+  .hero {
+    height: max-content;
+    margin-top: 5rem;
+  }
+  .hero-round-corners {
+    flex-direction: column-reverse;
+
+    height: 85vw;
+  }
+  .image-hero-div {
+    width: 100vw;
+    height: 100%;
+  }
+  .info-hero {
+    height: 90vw;
+    width: 100vw;
+  }
+
+  .info-hero-size {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw !important;
+  }
+
+  .info-hero-title {
+    text-align: center;
+    width: 55vw;
+  }
+
+  .info-hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3vw;
+  }
+
+  .info-hero-text p {
+    font-size: 2vw !important;
+    text-align: center;
+    margin-bottom: 0vw;
+  }
+
+  .image-hero {
+    width: 110vw;
+    height: auto;
+    bottom: 10vw;
+    left: 15vw;
+  }
+
+  .info-hero-btn {
+    gap: 2vw;
+  }
+
+  .process-section-content {
+    flex-direction: column;
+    gap: 10vw;
+}
+
+.process-steps-div{
+  width: 100%; 
+flex-direction: row;
+
+}
+.process-steps-item{
+flex-direction: column;
+width: 20vw;
+height: 27vw;
+}
+.process-steps-item-number{
+font-size: 5vw !important;
+}
+.process-steps-item h3{
+  font-size: 1.7vw;
+  height: 5vw;
+  text-align: center;
+}
+.process-steps-item p{
+
+  height: 5vw;
+}
+.process-steps-item-text{
+  font-size: 1.7vw !important;
+  text-align: center;
+}
+.process-circle-effect{
+  margin-right: 0;
+}
+}

@@ -1,0 +1,49 @@
+.footer-general-div{
+    display: flex;
+    flex-direction: column;
+    padding: 8vw 8vw;
+    align-items: center;
+    gap: 2vw
+}
+
+.footer-title{
+    font-family: 'Nohemi', sans-serif;
+    font-size: 3vw;
+    color: #2D2D2D;
+    width: 50vw;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.footer-social-icons{
+    display: flex;
+    flex-direction: row;
+    gap: 1vw;
+}
+
+.social-media{
+    width: 2vw;
+}
+
+.footerLink-ul{
+    list-style-type: none; 
+    padding: 0; 
+    margin: 0; 
+}
+
+.footerLink-ul li {
+    margin: 10px 0;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .footer-general-div{
+        gap: 4vw;
+    }
+    .footer-title{
+        font-size: 4vw!important;
+        width: 65vw;
+    }
+    .social-media{
+        width: 6vw;
+    }
+  }
