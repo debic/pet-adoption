@@ -79,7 +79,7 @@ export default function HeroPage() {
                 <h1>Find Your New Best Friend</h1>
               </div>
               <div className="info-hero-text">
-                <p>Where love begins and second chances happen.</p>
+                <p className="info-hero-subtitle">Where love begins and second chances happen.</p>
                 <div className="info-hero-btn">
                   <Button basic>Adopt now</Button>
                   <div className="info-hero-vertical-line"></div>

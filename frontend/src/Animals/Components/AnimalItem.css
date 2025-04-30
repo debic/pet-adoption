@@ -105,3 +105,29 @@
         padding: 3vw;
     }
 }
+
+@media only screen and (max-width: 480px) {
+    .animal-list {
+        gap: 8vw;
+        justify-content: center;
+    }
+    .animal-item {
+        width: 60vw;
+        height: 70vw;
+        border-radius: 2vw;
+    }
+    .animal-item-info{
+        padding: 5vw;
+    }
+    .animal-item-image-div{
+        height: 40vw;
+    }
+    .animal-item-image {
+        width: 100%;
+        height: 40vw;
+        border-radius: 2vw;
+    }
+    .animal-item-short-info {
+        margin-top: 2vw;
+    }
+}

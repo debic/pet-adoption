@@ -80,3 +80,11 @@
   }
 }
 
+@media only screen and (max-width: 480px) {
+  .button {
+    font-size: 5vw !important;
+    padding: 2vw 2vw 2vw 2vw !important;
+    width: 35vw;
+    border-radius: 1.5vw;
+  }
+}

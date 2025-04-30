@@ -38,7 +38,6 @@
 }
 
 .info-hero-text p {
- 
   font-weight: 300;
   line-height: 1.2;
   font-size: 1.1vw;
@@ -166,7 +165,7 @@
 }
 
 .process-section {
-    position: relative;
+  position: relative;
   padding: 8vw 18vw;
   background-color: #8a5d3b;
   display: flex;
@@ -179,46 +178,46 @@
 }
 
 .process-section-content {
-    display: flex;
-    flex-direction: row; /* Esto ya lo tienes, mantiene los divs en fila */
-    justify-content: space-between; /* Para que haya espacio entre los divs */
-    align-items: center;
+  display: flex;
+  flex-direction: row; /* Esto ya lo tienes, mantiene los divs en fila */
+  justify-content: space-between; /* Para que haya espacio entre los divs */
+  align-items: center;
 }
 
-.process-steps-div{
-    width: 48%; /* Ajusta el ancho de cada div para que no se superpongan */
+.process-steps-div {
+  width: 48%; /* Ajusta el ancho de cada div para que no se superpongan */
   display: flex;
   flex-direction: column;
   gap: 3vw;
 }
 
-.process-steps-item{
-    padding: 2vw;
-    display: flex;
-    align-items: center;
-    gap: 2vw;
-    border-radius: 0.8vw;
+.process-steps-item {
+  padding: 2vw;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  border-radius: 0.8vw;
 }
 
-.light-brown-background{
-    background-color: #A48269;
+.light-brown-background {
+  background-color: #a48269;
 }
 
-.dark-brown-background{
-    background-color: #553E29;
+.dark-brown-background {
+  background-color: #553e29;
 }
 
-.dark-background{
-    background-color: #2D2D2D;
+.dark-background {
+  background-color: #2d2d2d;
 }
 
-.process-steps-item-content{
-    display: flex;
-    flex-direction: column;
-    gap: 0.6vw;
+.process-steps-item-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6vw;
 }
 
-.process-steps-item h3{
+.process-steps-item h3 {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   line-height: 1.2;
@@ -226,26 +225,25 @@
   color: white;
 }
 
-.process-steps-item-number{
-    font-size: 5.5vw;
-    color: white;
+.process-steps-item-number {
+  font-size: 5.5vw;
+  color: white;
 }
 
-.process-steps-item-text{
-    color: white;
+.process-steps-item-text {
+  color: white;
 }
 
-.process-circle-effect{
-margin-right: 9vw;
-
+.process-circle-effect {
+  margin-right: 9vw;
 }
 
-.process-circle-effect p{
-    font-size: 4vw;
-    letter-spacing: 8px;
-    color: white;
-    text-align: center;
-    font-family: 'Nohemi', sans-serif;
+.process-circle-effect p {
+  font-size: 4vw;
+  letter-spacing: 8px;
+  color: white;
+  text-align: center;
+  font-family: "Nohemi", sans-serif;
 }
 
 @media only screen and (max-width: 768px) {
@@ -302,39 +300,164 @@ margin-right: 9vw;
   .info-hero-btn {
     gap: 2vw;
   }
+  .animals-section-list {
+    flex-direction: column;
+    gap: 5vw;
+  }
+
+  .animals-section-image-div {
+    position: relative;
+    width: 64vw; /* ajustalo según el diseño */
+    height: 30vw;
+    border-radius: 2vw;
+  }
 
   .process-section-content {
     flex-direction: column;
     gap: 10vw;
+  }
+
+  .process-steps-div {
+    width: 100%;
+    flex-direction: row;
+  }
+  .process-steps-item {
+    flex-direction: column;
+    width: 20vw;
+    height: 27vw;
+  }
+  .process-steps-item-number {
+    font-size: 5vw !important;
+  }
+  .process-steps-item h3 {
+    font-size: 1.7vw;
+    height: 5vw;
+    text-align: center;
+  }
+  .process-steps-item p {
+    height: 5vw;
+  }
+  .process-steps-item-text {
+    font-size: 1.7vw !important;
+    text-align: center;
+  }
+  .process-circle-effect {
+    margin-right: 0;
+  }
 }
 
-.process-steps-div{
-  width: 100%; 
-flex-direction: row;
+@media only screen and (max-width: 480px) {
+  .hero-round-corners {
+    flex-direction: column-reverse;
+    height: 70vh;
+  }
+  .info-hero {
+    height: 70vh;
+  }
+  .image-hero-div {
+    height: 40vh;
+  }
+  .image-hero {
+    width: 100vh;
+    height: 50vh;
+    position: relative;
+  }
 
-}
-.process-steps-item{
-flex-direction: column;
-width: 20vw;
-height: 27vw;
-}
-.process-steps-item-number{
-font-size: 5vw !important;
-}
-.process-steps-item h3{
-  font-size: 1.7vw;
-  height: 5vw;
-  text-align: center;
-}
-.process-steps-item p{
+  .info-hero-title {
+    width: 90vw;
+  }
+  .info-hero-text {
+    gap: 5vw;
+  }
+  .info-hero-text p {
+    font-size: 5vw !important;
+  }
+  .info-hero-subtitle {
+    width: 80vw !important;
+  }
+  .info-hero-btn {
+    flex-direction: column;
+    gap: 5vw;
+  }
+  .info-hero-vertical-line {
+    display: none;
+  }
+  .social-image-adopted {
+    width: 18vw;
+  }
+  .values-section {
+    gap: 5vw;
+    padding-bottom: 20vw;
+    padding-top: 20vw;
+  }
+  .values-section-items {
+    flex-direction: column;
+    align-items: center;
+    gap: -1vw;
+  }
+  .values-section-single-item {
+    width: 50vw;
+    height: 30vw;
+    flex-direction: row;
+    gap: 3vw;
+    padding: 5vw;
+  }
 
-  height: 5vw;
-}
-.process-steps-item-text{
-  font-size: 1.7vw !important;
-  text-align: center;
-}
-.process-circle-effect{
-  margin-right: 0;
-}
+  .rotate-left {
+    transform: rotate(-10deg);
+  }
+  .rotate-right {
+    transform: rotate(10deg);
+  }
+
+  .values-section h2 {
+    margin: 0;
+  }
+  .values-icon {
+    height: 5vw;
+    margin-top: 1vw;
+  }
+  .justArrivingSection {
+    padding: 20vw 15vw;
+    gap: 8vw;
+  }
+  .animals-section-list {
+    gap: 8vw;
+  }
+  .animals-section-image-div {
+    width: 60vw;
+    height: 40vw;
+    border-radius: 5vw;
+    margin-left: 5vw;
+    border-radius: 2vw;
+  }
+  .process-steps-div {
+    flex-direction: column;
+    gap: 8vw;
+  }
+  .process-section{
+    padding: 20vw 15vw;
+    gap: 8vw;
+  }
+  .process-steps-item{
+    width: 100%;
+    height: 45vw;
+  
+    padding: 5vw;
+  }
+  .process-steps-item-content{
+    gap: 4vw;
+  }
+  .process-steps-item p{
+    font-size: 4vw!important;
+    height: auto;
+  }
+  .process-steps-item-number{
+    
+font-size: 10vw!important;
+  }
+  .process-steps-item h3{
+    font-size: 5vw;
+  }
+
 }
