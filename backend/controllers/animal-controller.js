@@ -63,20 +63,21 @@ const getAnimalsByUserId = async (req, res, next) => {
   //let animal;
 let userWithAnimals
   try {
-    userWithAnimals = await User.findById(userId).populate('animals');
+    userWithAnimals = await User.findById(userId).populate('postedAnimals');
+    
   } catch (err) {
     const error = new HttpError("fetching places faild", 500);
     return next(error);
   }
-
-  if (!userWithAnimals || userWithAnimals.animals.length === 0) {
+console.log(userWithAnimals.animals)
+  if (!userWithAnimals || userWithAnimals.postedAnimals.length === 0) {
     return next(
       new HttpError("couldn find a animals for the provided user id", 404)
     );
   }
 
   res.json({
-    animals: userWithAnimals.animals.map((animal) => animal.toObject({ getters: true })),
+    animals: userWithAnimals.postedAnimals.map((animal) => animal.toObject({ getters: true })),
   });
 };
 
@@ -92,7 +93,7 @@ const addAnimal = async (req, res, next) => {
       new HttpError("Invalid inputs passed, please check your data.", 422)
     );
   }
-  const { name, info, type, creator, gender, age, weight } = req.body;
+  const { name, info, type, creator, gender, age, weight, currentlyStyaingWith,status,} = req.body;
 
   //This structure is predifined by the scheema, if it doesnt have the same structure it will throw an error
   const newAnimal = new Animal({
@@ -105,8 +106,9 @@ const addAnimal = async (req, res, next) => {
     weight,
     gender,
     creator,
+    currentlyStyaingWith,
+    status,
   });
-
 //here we see if there is an user with the existing ID
 let user;
 try {
@@ -125,12 +127,12 @@ try {
   const sess = await mongoose.startSession();
   sess.startTransaction();
   await newAnimal.save({ session: sess });
-  user.animals.push(newAnimal);
+  user.postedAnimals.push(newAnimal);
   await user.save({ session: sess });
   await sess.commitTransaction();
 } catch (err) {
   const error = new HttpError(
-    'Creating place failed, please try again.',
+    'Creating animal failed, please try again.',
     500
   );
   return next(error);

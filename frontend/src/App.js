@@ -38,7 +38,7 @@ function App() {
         <Route path="/users" exact>  <Users/></Route>
         <Route path="/animals/:animalId" exact> <AnimalInfo/></Route>
         <Route path="/:userId/animals" exact> <UserAnimals/></Route>
-        <Route path="/animals/new" exact> <NewAnimal/></Route>
+        <Route path="/animal/new" exact> <NewAnimal/></Route>
         <Route path="/animals/:animalId" exact> <UpdateAnimal/></Route>
         <Redirect to="/"/>
       </Switch>

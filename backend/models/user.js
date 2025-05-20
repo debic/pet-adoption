@@ -5,12 +5,15 @@ const Schema = mongoose.Schema;
 
 
 const userSchema = new Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, minlength: 6 },
-    imageURL: { type: String, required: true },
-    animals: [{type: mongoose.Types.ObjectId, required: true, ref: 'Animal'}],
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true, minlength: 6 },
+  imageURL: { type: String, required: true },
+  postedAnimals: [{ type: mongoose.Types.ObjectId, ref: 'Animal', default: [] }],
+  fosteredAnimals: [{ type: mongoose.Types.ObjectId, ref: 'Animal', default: [] }],
+  adoptedAnimals: [{ type: mongoose.Types.ObjectId, ref: 'Animal', default: [] }]
 });
+
 
 userSchema.plugin(uniqueValidator);
 //ref helps to connects diferent scheemas
