@@ -63,6 +63,8 @@ export default function NewAnimal() {
           age: formState.inputs.age.value,
           weight: formState.inputs.weight.value,
           creator: auth.userId,
+          currentlyStyaingWith:auth.userId,
+          status:"In adoption"
         },
         {
           "Content-Type": "application/json",

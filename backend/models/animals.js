@@ -11,7 +11,8 @@ const animalSchema = new Schema({
     weight: {type: String, required: true},
     imageURL: {type: String, required: true},
     creator: {type: mongoose.Types.ObjectId, required: true, ref: 'User'},
-
+    currentlyStyaingWith:{type: mongoose.Types.ObjectId, required: false, ref: 'User'},
+    status:{type: String, required: false},
 })
 
 //ref helps to connects diferent scheemas
