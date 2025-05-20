@@ -29,20 +29,55 @@
   }
 
   .form-control--invalid p {
+    margin-top: 1vw;
     color: #BC5353;
   }
+
+  .error-text {
+    color: #BC5353;
+    font-size: 0.8vw;
+    margin-top: 0.25rem;
+  }
+
+
+
+
 
 /* INPUT */
 
 input{
-    border-radius: 50px;
+    border-radius: 0.5vw;
     border-style:solid;
-    padding: 0.8vw 2vw;
+    padding: 0.8vw 1vw;
+    background-color: #f4f3f2;
+}
+.form-control input,
+.form-control textarea,
+.form-control select {
+  font-family: 'Roboto', sans-serif;
 }
 
-
+.form-control input:focus,
+.form-control textarea:focus,
+.form-control select:focus {
+  outline: none; 
+  border-color: #8A5D3B; 
+  color: #222; 
+}
 
   .animal-form{
     display: flex;
     flex-direction: column;
+  }
+
+
+  @media only screen and (max-width: 480px) {
+
+    .form-control{
+      margin-bottom: 6vw;
+    }
+    input {
+      border-radius: 2vw;
+      padding: 3vw 2vw;
+    }
   }

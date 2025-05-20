@@ -1,10 +1,76 @@
-.authentication{
-    width: 90%;
-    max-width: 40vw;
-    margin: 7rem auto;
-    text-align: center;
+.auth-section {
+  display: flex;
+  position: relative;
+  height: 92vh;
+  overflow: hidden;
+  background-color: #f4f3f2;
+}
+.switch-button{
+    width: max-content;
 }
 
-.authentication form{
-margin-bottom: 1rem;
+.auth-image-div {
+  width: 60vw;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
 }
+
+.auth-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  filter: brightness(60%);
+}
+
+.authentication-div {
+  width: 50vw;
+  position: relative;
+  z-index: 1;
+  margin-left: -10vw;
+  background-color: #f4f3f2;
+  border-radius: 3vw;
+  display: flex;
+  justify-content: center;
+}
+
+.authentication form {
+  margin-bottom: 2vw;
+}
+
+@media only screen and (max-width: 768px) {
+    .auth-section{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .auth-image-div{
+        width: 100vw;
+        margin-top: -10vw;
+    }
+    .authentication-div {
+        height: 150vw;
+        margin: 0vw;
+        width: 100vw;
+    }
+
+}
+
+
+@media only screen and (max-width: 480px) {
+
+    .auth-image-div{
+        width: 100vw;
+        margin-top: -10vw;
+    }
+    .authentication-div {
+        height: 110vh;
+        margin: 0vw;
+        width: 100vw;
+    }
+    .authentication form {
+        margin-bottom: 6vw;
+    }
+  }

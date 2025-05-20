@@ -1,6 +1,4 @@
 import React, { useState, useContext } from "react";
-import FemaleImg from "../../Style/IMG/female.svg";
-import MaleImg from "../../Style/IMG/male.svg";
 import Button from "../../Shared/Components/Button";
 import Modal from "../../Shared/Components/Modal";
 import { AuthContext } from "../../Shared/Context/auth-context";
@@ -14,7 +12,6 @@ export default function AnimalItem(props) {
   const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  console.log(props);
   const showDeleteWarningHandler = () => {
     setShowConfirmModal(true);
   };
@@ -71,6 +68,8 @@ export default function AnimalItem(props) {
       </Modal>
 
       <li className="animal-item-li">
+      <Link to={`/animals/${props.id}`} className="animal-item-link">
+
         <div className="animal-item" style={{ backgroundColor: bgColor }}>
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="animal-item-image-div">
@@ -91,6 +90,7 @@ export default function AnimalItem(props) {
             </p>
           </div>
         </div>
+        </Link>
       </li>
     </>
   );

@@ -4,7 +4,6 @@ import AnimalItem from './AnimalItem'
 import './../Animals.css'
 
 export default function AnimalsList(props) {
-    console.log(props)
 
     if(props.items.length === 0){
         return (

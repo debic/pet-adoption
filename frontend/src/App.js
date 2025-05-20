@@ -36,10 +36,10 @@ function App() {
         <Route path="/" exact> <HeroPage/></Route>
         <Route path="/allAnimals" exact>  <AllAnimals/></Route>
         <Route path="/users" exact>  <Users/></Route>
-        <Route path="/:animalId" exact> <AnimalInfo/></Route>
+        <Route path="/animals/:animalId" exact> <AnimalInfo/></Route>
         <Route path="/:userId/animals" exact> <UserAnimals/></Route>
-        <Route path="/animal/new" exact> <NewAnimal/></Route>
-        <Route path="/animal/:animalId" exact> <UpdateAnimal/></Route>
+        <Route path="/animals/new" exact> <NewAnimal/></Route>
+        <Route path="/animals/:animalId" exact> <UpdateAnimal/></Route>
         <Redirect to="/"/>
       </Switch>
     )
@@ -49,8 +49,8 @@ function App() {
         <Route path="/" exact> <HeroPage/></Route>
         <Route path="/allAnimals" exact>  <AllAnimals/></Route>
         <Route path="/users" exact>  <Users/></Route>
-        <Route path="/auth" exact> <Auth/></Route>
-        <Route path="/:animalId" exact> <AnimalInfo/></Route>
+        <Route path="/:type/auth" exact> <Auth/></Route>
+        <Route path="/animals/:animalId" exact> <AnimalInfo/></Route>
         <Route path="/:userId/animals" exact> <UserAnimals/></Route>
         <Redirect to="/auth"/>
       </Switch>

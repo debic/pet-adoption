@@ -35,7 +35,6 @@ export default function HeroPage() {
         );
         setLoadedAnimals(response.data.animals);
         setFilteredAnimals(response.data.animals.slice(0, 6));
-        console.log(response.data.animals);
       } catch (error) {}
     };
     fetchAnimals();

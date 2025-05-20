@@ -36,12 +36,12 @@ export default function NavLinks(props) {
       {!auth.isLoggedIn && (
         <>
           <li>
-            <NavLink className="button-auth-login" to="/auth">
+            <NavLink className="button-auth-login" to="/login/auth">
               Login
             </NavLink>
           </li>
           <li>
-            <NavLink className="button-auth-signUp" to="/auth">
+            <NavLink className="button-auth-signUp" to="/signup/auth">
               Sign up
             </NavLink>
           </li>

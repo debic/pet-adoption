@@ -12,6 +12,8 @@ header{
 
 .flex-center{
   justify-content: center;
+  align-items: center;
+  gap: 1vw;
 }
 
 .main-header {
@@ -39,4 +41,13 @@ header{
   height: 100vh;
   background: rgba(0, 0, 0, 0.75);
   z-index: 10;
+}
+
+@media only screen and (max-width: 480px) {
+
+  .flex-row{
+    display: flex;
+    flex-direction: column;
+    
+  }
 }

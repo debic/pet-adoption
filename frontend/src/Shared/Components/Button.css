@@ -4,13 +4,14 @@
 .button {
     font: inherit;
     font-size: 1vw;
-    padding: 0.6vw 1.5vw !important;
+    padding: 0.4vw 1.5vw !important;
     border-radius: 0.5vw;
     border: 0px;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
     z-index: 1;
+    width: max-content;
   }
 
   /* Brown */
@@ -27,13 +28,13 @@
   /* Inverse */
 
   .button-inverse{
-    border: 2px solid #381742;
-    color: #381742;
+    border: 2px solid #8a5d3b;
+    color: #8a5d3b;
   }
 
   .button-inverse:hover{
     color: #ffffff;
-    background-color: #381742;
+    background-color: #8a5d3b;
   }
 
   /* Secondary */
@@ -50,6 +51,12 @@
     border-color: #7a5030;
   }
 
+  /* Delete */
+  .button-delete{
+    background: white;
+    color: #8a5d3b;
+  }
+
  /* Disabled */
 .button:disabled,
 .button:hover:disabled,
@@ -64,27 +71,32 @@
 
 .button-link{
     background-color: transparent;
-    border-bottom: 2px solid #000000;
-    border-radius: 0%;
-    margin: 0vw 0.5vw;
-    padding: 0%;
+    margin: 0vw;
+    padding: 0% !important;
+    color: #8A5D3B;
 }
 
+ /* Form */
+ .button-form{
+  width: 100%;
+  background-color: #8A5D3B;
+  color: white;
+}
 
 @media only screen and (max-width: 768px) {
   .button {
     font-size: 2vw !important;
     padding: 1vw 2vw 1vw 2vw !important;
-    margin: auto;
-    width: 15vw;
+    margin: 0px;
+    width: 100%;
   }
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 500px) {
   .button {
     font-size: 5vw !important;
-    padding: 2vw 2vw 2vw 2vw !important;
-    width: 35vw;
+    padding: 2vw 6vw 2vw 6vw !important;
+    width: max-content;
     border-radius: 1.5vw;
   }
 }

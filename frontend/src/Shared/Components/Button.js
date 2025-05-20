@@ -5,7 +5,7 @@ import './Button.css'
 export default function Button(props) {
     if(props.href){
         return (
-          <a className={`button ${props.basic && 'button-brown'} ${props.inverse && 'button-inverse'} ${props.danger && 'button-danger'} ${props.link && 'button-link'}`} href={props.href}>
+          <a className={`button ${props.basic && 'button-brown'} ${props.inverse && 'button-inverse'} ${props.delete && 'button-delete'} ${props.link && 'button-link'} ${props.form && 'button-form'}`} href={props.href}>
             {props.children}  
           </a>
           )
@@ -15,7 +15,7 @@ export default function Button(props) {
             <Link
             to={props.to}
             exact={props.exact}
-            className={`button ${props.basic && 'button-brown'} ${props.inverse && 'button-inverse'} ${props.danger && 'button-danger'}`}
+            className={`button ${props.basic && 'button-brown'} ${props.inverse && 'button-inverse'} ${props.delete && 'button-delete'} ${props.form && 'button-form'}`}
             >
             {props.children}
             </Link>
@@ -23,7 +23,7 @@ export default function Button(props) {
     }
     return (
         <button
-        className={`button ${props.basic && 'button-brown'} ${props.inverse && 'button-inverse'} ${props.danger && 'button-danger'} ${props.link && 'button-link'}`}
+        className={`button ${props.basic && 'button-brown'} ${props.inverse && 'button-inverse'} ${props.delete && 'button-delete'} ${props.link && 'button-link'} ${props.form && 'button-form'}`}
         type={props.type}
         onClick={props.onClick}
         disabled={props.disabled}
