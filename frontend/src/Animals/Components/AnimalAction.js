@@ -3,26 +3,21 @@ import { useHistory } from "react-router-dom";
 import Button from "../../Shared/Components/Button";
 import Modal from "../../Shared/Components/Modal";
 import useHttpClient from "../../Shared/Hooks/http-hook";
-import UpdateAnimal from "../Pages/UpdateAnimal";
-import { AuthContext } from "../../Shared/Context/auth-context"; 
+import { AuthContext } from "../../Shared/Context/auth-context";
 
-export default function AnimalActions({ isCreator, animalId, animalInfo }) {
+export default function AnimalActions({ isCreator, animalId, animalInfo, onUpdateAnimal }) {
   const { sendRequest } = useHttpClient();
   const history = useHistory();
-  const [pendingAction, setPendingAction] = useState(null); // 'edit', 'delete', 'adopt', 'foster'
-  const auth = useContext(AuthContext)
+  const [pendingAction, setPendingAction] = useState(null);
+  const auth = useContext(AuthContext);
 
   const openModal = (action) => setPendingAction(action);
   const closeModal = () => setPendingAction(null);
 
   const confirmAction = async () => {
-    console.log(pendingAction);
     try {
       if (pendingAction === "delete") {
-        await sendRequest(
-          `http://localhost:4000/api/animals/${animalId}`,
-          "DELETE"
-        );
+        await sendRequest(`http://localhost:4000/api/animals/${animalId}`, "DELETE");
         history.push("/");
       } else if (pendingAction === "adopt" || pendingAction === "foster") {
         await sendRequest(
@@ -34,17 +29,59 @@ export default function AnimalActions({ isCreator, animalId, animalInfo }) {
             type: animalInfo.type,
             status: pendingAction,
             currentlyStyaingWith: auth.userId,
-            userId:auth.userId
+            userId: auth.userId
           },
           { "Content-Type": "application/json" }
         );
         closeModal();
+        onUpdateAnimal?.(); // 👈 llama a la función si existe
       } else if (pendingAction === "edit") {
         history.push(`/animals/${animalId}/edit`);
       }
     } catch (err) {
       closeModal();
     }
+  };
+
+  const renderActions = () => {
+    if (!auth.isLoggedIn) {
+      return <p>Please log in to adopt or foster this pet.</p>;
+    }
+
+    if (isCreator) {
+      return (
+        <>
+          <Button basic onClick={() => history.push(`/animals/${animalId}/edit`)}>
+            Edit
+          </Button>
+          <Button delete onClick={() => openModal("delete")}>
+            Delete
+          </Button>
+        </>
+      );
+    }
+
+    // Si el usuario está logueado pero NO es el creador
+    if (animalInfo.status === "adopt") {
+      return <p>This pet has already been adopted.</p>;
+    }
+
+    if (animalInfo.status === "foster") {
+      return (
+        <>
+          <Button basic onClick={() => openModal("adopt")}>Adopt</Button>
+          <p>Currently fostered with {animalInfo.currentlyStyaingWith}</p>
+        </>
+      );
+    }
+
+    // Si está disponible (status vacío o "In adoption")
+    return (
+      <>
+        <Button basic onClick={() => openModal("adopt")}>Adopt</Button>
+        <Button inverse onClick={() => openModal("foster")}>Foster</Button>
+      </>
+    );
   };
 
   return (
@@ -56,53 +93,18 @@ export default function AnimalActions({ isCreator, animalId, animalInfo }) {
         footerClass="animal-item__modal-actions"
         footer={
           <>
-            <Button inverse onClick={closeModal}>
-              Cancelar
-            </Button>
-            <Button danger onClick={confirmAction}>
-              Confirmar
-            </Button>
+            <Button inverse onClick={closeModal}>Cancelar</Button>
+            <Button danger onClick={confirmAction}>Confirmar</Button>
           </>
         }
       >
-        {pendingAction === "delete" && (
-          <p>¿Seguro que querés eliminar este animal?</p>
-        )}
-        {pendingAction === "adopt" && (
-          <p>¿Seguro que querés adoptar este animal?</p>
-        )}
-        {pendingAction === "foster" && (
-          <p>¿Seguro que querés acoger este animal?</p>
-        )}
+        {pendingAction === "delete" && <p>¿Seguro que querés eliminar este animal?</p>}
+        {pendingAction === "adopt" && <p>¿Seguro que querés adoptar este animal?</p>}
+        {pendingAction === "foster" && <p>¿Seguro que querés acoger este animal?</p>}
       </Modal>
 
       <div className="animal-info-btns">
-        {auth.isLoggedIn ? (
-          isCreator ? (
-            <>
-              <Button
-                basic
-                onClick={() => history.push(`/animals/${animalId}/edit`)}
-              >
-                Edit
-              </Button>
-              <Button delete onClick={() => openModal("delete")}>
-                Delete
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button basic onClick={() => openModal("adopt")}>
-                Adopt
-              </Button>
-              <Button inverse onClick={() => openModal("foster")}>
-                Foster
-              </Button>
-            </>
-          )
-        ) : (
-          <p>Please log in to interact</p>
-        )}
+        {renderActions()}
       </div>
     </>
   );

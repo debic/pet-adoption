@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import useHttpClient from "../../Shared/Hooks/http-hook";
 import "./AnimalInfo.css";
@@ -15,22 +15,19 @@ export default function AnimalInfo() {
   const [animalInfo, setAnimalInfo] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
-  useEffect(() => {
-    const fetchAnimal = async () => {
-      try {
-        const response = await sendRequest(
-          `http://localhost:4000/api/animals/${aId}`,
-          "GET",
-          {},
-          {
-            "Content-Type": "application/json",
-          }
-        );
-        setAnimalInfo(response.data.animal);
-      } catch (error) {}
-    };
-    fetchAnimal();
+  const fetchAnimal = useCallback(async () => {
+    try {
+      const response = await sendRequest(
+        `http://localhost:4000/api/animals/${aId}`,
+        "GET"
+      );
+      setAnimalInfo(response.data.animal);
+    } catch (error) {}
   }, [sendRequest, aId]);
+
+  useEffect(() => {
+    fetchAnimal();
+  }, [fetchAnimal]);
 
   let accordionSections = [];
   if (animalInfo) {
@@ -88,6 +85,7 @@ export default function AnimalInfo() {
               isCreator={auth.userId === animalInfo.creator}
               animalId={aId} 
               animalInfo={animalInfo}
+              onUpdateAnimal={fetchAnimal}
             />
           </div>
         </div>
