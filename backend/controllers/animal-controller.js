@@ -156,9 +156,8 @@ const updateAnimalById = async (req, res, next) => {
       new HttpError("Invalid inputs, please check your data", 422)
     );
   }
-  const { name, info, type, imageURL } = req.body;
+  const { name, info, type, imageURL, currentlyStyaingWith, status, userId } = req.body;
   const animalId = req.params.aid;
-
   let animal;
 
   try {
@@ -175,8 +174,11 @@ const updateAnimalById = async (req, res, next) => {
   animal.name = name;
   animal.info = info;
   animal.type = type;
+  animal.currentlyStyaingWith = currentlyStyaingWith;
+  animal.status = status;
 
-  //here the data is been update
+
+  //here the data animal is been update
   try {
     await animal.save();
   } catch (err) {
@@ -186,6 +188,41 @@ const updateAnimalById = async (req, res, next) => {
     );
     return next(error);
   }
+
+  //here we see if there is an user with the existing ID
+let user;
+try {
+  user = await User.findById(userId);
+} catch (err) {
+  const error = new HttpError('Could not find user for the provided id', 500);
+  return next(error);
+}
+
+if (!user) {
+  const error = new HttpError('Could not find user for provided id', 404);
+  return next(error);
+}
+ console.log(animal)
+
+try {
+  const sess = await mongoose.startSession();
+  sess.startTransaction();
+  await animal.save({ session: sess });
+
+  if (status === "adopt") {
+    user.adoptedAnimals.push(animal._id);
+  } else if (status === "foster") {
+    user.fosteredAnimals.push(animal._id);
+  }  await user.save({ session: sess });
+  await sess.commitTransaction();
+} catch (err) {
+  const error = new HttpError(
+    'Creating animal failed, please try again.',
+    500
+  );
+  return next(error);
+}
+
 
   res.status(200).json({ animal: animal.toObject({ getters: true }) });
 };

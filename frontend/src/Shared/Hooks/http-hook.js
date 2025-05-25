@@ -32,7 +32,6 @@ export default function useHttpClient() {
           signal: httpAbortCtrl.signal
         });
       }
-      console.log(response)
 
 
       activeHttpRequests.current = activeHttpRequests.current.filter(

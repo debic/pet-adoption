@@ -25,7 +25,6 @@ function App() {
   const logout = useCallback(() => {
     setIsLoggedIn(false)
     setUserId(null)
-
   })
 
   let routes
@@ -39,7 +38,7 @@ function App() {
         <Route path="/animals/:animalId" exact> <AnimalInfo/></Route>
         <Route path="/:userId/animals" exact> <UserAnimals/></Route>
         <Route path="/animal/new" exact> <NewAnimal/></Route>
-        <Route path="/animals/:animalId" exact> <UpdateAnimal/></Route>
+        <Route path="/animals/:animalId/edit" exact> <UpdateAnimal/></Route>
         <Redirect to="/"/>
       </Switch>
     )

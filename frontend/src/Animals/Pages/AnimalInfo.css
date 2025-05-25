@@ -1,128 +1,122 @@
-.section-animal-info{
-    display: flex;
-    flex-direction: row;
-    padding: 5vw 5vw;
-    justify-content: center;
-    gap: 5vw;
-    background-color: rgb(236, 236, 236);
+.section-animal-info {
+  display: flex;
+  flex-direction: row;
+  padding: 5vw 5vw;
+  justify-content: center;
+  gap: 5vw;
+  background-color: rgb(236, 236, 236);
 }
 
-.animal-info-image-div{
-    width: 40vw;
-    height: 40vw;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-      position: relative;
-    border-radius: 1vw;
+.animal-info-image-div {
+  width: 40vw;
+  height: 40vw;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 1vw;
 }
-.animal-info-data{
-    width: 40vw;
-    display: flex;
-    flex-direction: column;
-    margin-top: 3vw;
-
+.animal-info-data {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vw;
 }
-.animal-info-image{
-     width: 100%;
+.animal-info-image {
+  width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
-.animal-info-data h2{
-    margin-bottom: 0.5vw;
-    text-transform: capitalize;
-    font-size: 3vw;
+.animal-info-data h2 {
+  margin-bottom: 0.5vw;
+  text-transform: capitalize;
+  font-size: 3vw;
 }
-.animal-info-data-short{
-    display: flex;
-    flex-direction: row;
-    gap: 0.5vw;
-}
-
-.animal-info-data-short p{
-    font-weight: 600;
+.animal-info-data-short {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5vw;
 }
 
-.animal-info-data-description{
-    color: #8a5d3b !important;
-}
-.animal-info-data-div{
-    margin: 1vw 0vw;
+.animal-info-data-short p {
+  font-weight: 600;
 }
 
-
-.animal-info-data-short p{
-    font-size: 1vw;
-    color: #8a5d3b;
-    text-transform: capitalize;
+.animal-info-data-description {
+  color: #8a5d3b !important;
+}
+.animal-info-data-div {
+  margin: 1vw 0vw;
 }
 
-.cursive{
-    font-style: italic;
+.animal-info-data-short p {
+  font-size: 1vw;
+  color: #8a5d3b;
+  text-transform: capitalize;
 }
 
-.animal-info-data-short-2{
-    display: flex;
-    flex-direction: row;
-    gap: 0.5vw;
+.cursive {
+  font-style: italic;
 }
 
-.animal-info-data-short-2 p{
-    font-weight: 600;
-    font-size: 1vw;
-    color: #8a5d3b;
+.animal-info-data-short-2 {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5vw;
 }
 
-.animal-info-btns{
-    margin-top: 2vw;
-    display: flex;
-    flex-direction: row;
-    gap: 0.8vw;
+.animal-info-data-short-2 p {
+  font-weight: 600;
+  font-size: 1vw;
+  color: #8a5d3b;
+}
+
+.animal-info-btns {
+  margin-top: 2vw;
+  display: flex;
+  flex-direction: row;
+  gap: 0.8vw;
 }
 
 @media only screen and (max-width: 768px) {
-
-
-  }
-  
-  
-  @media only screen and (max-width: 500px) {
-
-    .section-animal-info{
-        flex-direction: column;
-        padding: 0vw 0vw;
-    }
-    .animal-info-image-div{
-        width: 100vw;
-        height: 100vw;
-        border-radius: 0vw 0vw 5vw 5vw;
-        position: relative;
-    }
-
-    .animal-info-image{
-     width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  object-position: center;
 }
-    .animal-info-data{
-        width: 100vw;
-        padding: 10vw;
-        margin: 0vw;
-        gap: 8vw;
-    }
-    .animal-info-data h2{
-        margin-bottom: 0.5vw;
-        font-size: 8vw;
-    }
 
-    .animal-info-btns {
+@media only screen and (max-width: 500px) {
+  .section-animal-info {
+    flex-direction: column;
+    padding: 0vw 0vw;
+  }
+  .animal-info-image-div {
+    width: 100vw;
+    height: 100vw;
+    border-radius: 0vw 0vw 5vw 5vw;
+    position: relative;
+  }
+
+  .animal-info-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    object-position: center;
+  }
+  .animal-info-data {
+    width: 100vw;
+    padding: 10vw;
+    margin: 0vw;
+    gap: 8vw;
+  }
+  .animal-info-data h2 {
+    margin-bottom: 0.5vw;
+    font-size: 8vw;
+  }
+
+  .animal-info-btns {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     gap: 5vw;
-}
   }
+}
