@@ -4,7 +4,7 @@ import AnimalList from './../Components/AnimalsList'
 import ErrorModal from '../../Shared/Components/UIElements/ErrorModal'
 import LoadingSpinner from '../../Shared/Components/UIElements/LoadingSpinner'
 import useHttpClient from '../../Shared/Hooks/http-hook'
-
+import '../Pages/UserAnimals.css'
 export default function UserAnimals() {
     const {isLoading, error, sendRequest, clearError} = useHttpClient();
     const [loadedUsersAnimals,setLoadedUsersAnimals] = useState()
@@ -34,10 +34,15 @@ export default function UserAnimals() {
   return (
     <>
     <ErrorModal error = {error} onClear={clearError}/>
+        <div className='grey-background'>
 
-    {!isLoading && loadedUsersAnimals && (
-      <AnimalList items={loadedUsersAnimals} onDeleteAnimal={animalDeletedHandler}/>
-    )}
+    <h2 className='title-page'>My Animals</h2>
+      {!isLoading && loadedUsersAnimals && (
+        <div className="animals-section-list">
+          <AnimalList items={loadedUsersAnimals} onDeleteAnimal={animalDeletedHandler}/>
+        </div>
+      )}
+    </div>
     
     {isLoading && (
       <div className="center">

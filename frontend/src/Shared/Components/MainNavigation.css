@@ -1,16 +1,16 @@
 .button-auth-signUp {
-  background-color: #8a5d3b;
+  background-color: #5b3a21;
   padding: 0.6vw 1.5vw !important;
   border-radius: 0.5vw;
   color: #ffffff !important;
 }
 
 .button-auth-signUp:hover {
-  background-color: #5b3a21;
+  background-color: #8a5d3b;
 }
 
 .button-auth-login {
-  border: 2px solid #8a5d3b;
+  border: 1px solid #5b3a21;
   padding: 0.5vw 1.5vw !important;
   border-radius: 0.5vw;
   color: #292929;
@@ -80,15 +80,19 @@
 
 
   .nav-links button {
-    border: 1px solid white;
+    border: 1px solid #5b3a21;
     background: #ffffff;
-    color: rgb(255, 255, 255);
+    color: #5b3a21;
     background: transparent;
+    font-size: 1vw;
+    font-weight: 400;
   }
 
   .nav-links button:hover {
-    background: #ffffff;
-    color: #292929;
+        border: 1px solid #5b3a21;
+
+    background: #5b3a21;
+    color: #ffffff;
   }
   .nav-links button:active {
     background: #ffffff;

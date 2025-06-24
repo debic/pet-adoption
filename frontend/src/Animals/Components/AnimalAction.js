@@ -48,7 +48,7 @@ export default function AnimalActions({ isCreator, animalId, animalInfo, onUpdat
       return <p>Please log in to adopt or foster this pet.</p>;
     }
 
-    if (isCreator) {
+    if (isCreator && (animalInfo.status !== "adopt")) {
       return (
         <>
           <Button basic onClick={() => history.push(`/animals/${animalId}/edit`)}>

@@ -49,7 +49,7 @@ export default function NavLinks(props) {
       )}
       {auth.isLoggedIn && (
         <li>
-          <Button className="button-auth-login" inverse onClick={auth.logout}>
+          <Button basic className="button-auth-login"   onClick={auth.logout}>
             Logout
           </Button>
         </li>

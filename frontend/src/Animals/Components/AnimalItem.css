@@ -9,7 +9,6 @@
     display: flex;
     flex-wrap: wrap;
     position: relative; /* ya no absolute */
-
 }
 
 
@@ -27,6 +26,7 @@
 }
 .animal-item-title h3{
     color: white;
+    text-transform: capitalize;
 }
 
 .animal-item-gender{
