@@ -8,7 +8,9 @@ router.get('/:aId', animalsControllers.getAnimalById);
 router.get('/', animalsControllers.getAllAnimals);
 
 
-router.get('/user/:uId', animalsControllers.getAnimalsByUserId);
+router.get('/user/posted/:uId', animalsControllers.getPostedAnimalsByUserId);
+router.get('/user/fostered/:uId', animalsControllers.getFosteredAnimalsByUserId);
+router.get('/user/adopted/:uId', animalsControllers.getAdoptedAnimalsByUserId);
 
 router.post(
     '/', 

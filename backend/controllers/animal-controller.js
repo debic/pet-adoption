@@ -57,7 +57,7 @@ const getAllAnimals = async(req, res, next) =>{
 
 
 
-const getAnimalsByUserId = async (req, res, next) => {
+const getPostedAnimalsByUserId = async (req, res, next) => {
   const userId = req.params.uId;
 
   //let animal;
@@ -70,7 +70,7 @@ let userWithAnimals
     return next(error);
   }
 console.log(userWithAnimals.animals)
-  if (!userWithAnimals || userWithAnimals.postedAnimals.length === 0) {
+  if (!userWithAnimals) {
     return next(
       new HttpError("couldn find a animals for the provided user id", 404)
     );
@@ -81,6 +81,54 @@ console.log(userWithAnimals.animals)
   });
 };
 
+
+const getFosteredAnimalsByUserId = async (req, res, next) => {
+  const userId = req.params.uId;
+
+  //let animal;
+let userWithAnimals
+  try {
+    userWithAnimals = await User.findById(userId).populate('fosteredAnimals');
+    
+  } catch (err) {
+    const error = new HttpError("fetching places faild", 500);
+    return next(error);
+  }
+console.log(userWithAnimals.animals)
+  if (!userWithAnimals) {
+    return next(
+      new HttpError("couldn find a animals for the provided user id", 404)
+    );
+  }
+
+  res.json({
+    animals: userWithAnimals.fosteredAnimals.map((animal) => animal.toObject({ getters: true })),
+  });
+};
+
+const getAdoptedAnimalsByUserId = async (req, res, next) => {
+  const userId = req.params.uId;
+
+  //let animal;
+let userWithAnimals
+  try {
+    userWithAnimals = await User.findById(userId).populate('adoptedAnimals');
+    
+  } catch (err) {
+    const error = new HttpError("fetching places faild", 500);
+    return next(error);
+  }
+console.log(userWithAnimals.animals)
+  if (!userWithAnimals ) {
+    return next(
+      new HttpError("couldn find a animals for the provided user id", 404)
+    );
+  }
+
+  res.json({
+    animals: userWithAnimals.adoptedAnimals.map((animal) => animal.toObject({ getters: true })),
+  });
+};
 
 
 
@@ -277,7 +325,10 @@ const deleteAnimalById = async (req, res, next) => {
 
 exports.getAnimalById = getAnimalById;
 exports.getAllAnimals = getAllAnimals;
-exports.getAnimalsByUserId = getAnimalsByUserId;
+exports.getPostedAnimalsByUserId = getPostedAnimalsByUserId;
+exports.getAdoptedAnimalsByUserId = getAdoptedAnimalsByUserId;
+exports.getFosteredAnimalsByUserId = getFosteredAnimalsByUserId;
+
 exports.addAnimal = addAnimal;
 exports.updateAnimalById = updateAnimalById;
 exports.deleteAnimalById = deleteAnimalById;
