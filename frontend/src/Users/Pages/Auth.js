@@ -26,8 +26,7 @@ export default function Auth() {
         setIsLoginMode(false)
       }
     }, [loginOrSignup]);
-
-
+    
     console.log(isLoginMode,loginOrSignup)
 
   //Este es el initial state del form, donde todo parte sin valores y invalido. 
@@ -43,8 +42,6 @@ export default function Auth() {
         isValid: false
     }
   }, false)
-
-
 
 const switchModeHandler = () =>{
     //para manejar que inputs tiene que ser validos, si uno sign up se necesitan 3 inputs si uno inicia sesion  solo necestas 2
@@ -67,9 +64,6 @@ const switchModeHandler = () =>{
     setIsLoginMode(prevMode => !prevMode)
 }
 
-
-
-
 const authSubmitHandler = async event => {
     event.preventDefault();
     //setIsloading(true);
@@ -85,6 +79,7 @@ const authSubmitHandler = async event => {
           }
         );
         auth.login(responseData.data.user.id);
+         console.log(responseData.data.user.id)
       } catch (error) {
         console.log("Error en login:", error);
         // No necesitas hacer más, el error ya fue capturado en el hook y se muestra con el modal
@@ -97,20 +92,17 @@ const authSubmitHandler = async event => {
         email: formState.inputs.email.value,
         password: formState.inputs.password.value,
       }, {
-        
           'Content-Type': 'application/json',
         },
       );
-      auth.login(responseData.user.id)
- 
+      console.log("Signup response:", responseData.data.user.id);
+      auth.login(responseData.data.user.id)
+     console.log(responseData.data.user.id)
     }catch (error) {
-
+      console.log("Error en signup:", error);
     }
   }
-
 }
-
-
 
   return (
     <>
