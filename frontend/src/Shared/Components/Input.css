@@ -1,83 +1,107 @@
 /* FORM */
 
-.form-control{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    margin-bottom: 2vw;
-  }
+.form-control {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 2vw;
+}
 
-  .form-control label{
-    margin-bottom: 0.8vw;
-  }
+.form-control label {
+  margin-bottom: 0.8vw;
+}
 
-  .whiteLabel{
-    color: #ffffff;
-  }
+.whiteLabel {
+  color: #ffffff;
+}
 
-  .blackLabel{
-    color:black;
-  }
+.blackLabel {
+  color: black;
+}
 
-  .form-control--invalid .label{
- color: #BC5353;
-  }
+.form-control--invalid .label {
+  color: #bc5353;
+}
 
-  .form-control--invalid input {
-    border: 2px solid #BC5353;
-    border-style: solid;
-  }
+.form-control--invalid input {
+  border: 2px solid #bc5353;
+  border-style: solid;
+}
 
-  .form-control--invalid p {
-    margin-top: 1vw;
-    color: #BC5353;
-  }
+.form-control--invalid p {
+  margin-top: 1vw;
+  color: #bc5353;
+}
 
-  .error-text {
-    color: #BC5353;
-    font-size: 0.8vw;
-    margin-top: 0.25rem;
-  }
-
-
-
-
+.error-text {
+  color: #bc5353;
+  font-size: 0.8vw;
+  margin-top: 0.25rem;
+}
 
 /* INPUT */
 
-input{
-    border-radius: 0.5vw;
-    border-style:solid;
-    padding: 0.8vw 1vw;
-    background-color: #f4f3f2;
+input {
+  border-radius: 0.5vw;
+  border-style: solid;
+  padding: 0.8vw 1vw;
+  background-color: #f4f3f2;
 }
 .form-control input,
 .form-control textarea,
 .form-control select {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .form-control input:focus,
 .form-control textarea:focus,
 .form-control select:focus {
-  outline: none; 
-  border-color: #8A5D3B; 
-  color: #222; 
+  outline: none;
+  border-color: #8a5d3b;
+  color: #222;
 }
 
-  .animal-form{
-    display: flex;
-    flex-direction: column;
+.animal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* SELECT */
+
+.custom-select {
+  border-radius: 0.5vw;
+  border-style: solid;
+  padding: 0.8vw 1vw;
+  background-color: #f4f3f2;
+  border-width: 2px;
+}
+
+/*TEXT AREA*/
+
+textarea {
+  border-radius: 0.5vw;
+  border-style: solid;
+  border-width: 2px;
+}
+
+@media only screen and (max-width: 480px) {
+  .form-control {
+    margin-bottom: 6vw;
   }
-
-
-  @media only screen and (max-width: 480px) {
-
-    .form-control{
-      margin-bottom: 6vw;
-    }
-    input {
-      border-radius: 2vw;
-      padding: 3vw 2vw;
-    }
+  input {
+    border-radius: 2vw;
+    padding: 3vw 2vw;
   }
+  .custom-select {
+    border-radius: 2vw;
+    padding: 3vw 2vw;
+  }
+  .error-text {
+  font-size: 4vw !important;
+  margin-top: 5vw;
+}
+textarea {
+  border-radius: 2vw;
+
+}
+}

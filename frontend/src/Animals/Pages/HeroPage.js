@@ -18,7 +18,6 @@ import CircleType from 'circletype';
 
 
 export default function HeroPage() {
-  const [loadedAnimals, setLoadedAnimals] = useState();
   const [filteredAnimals, setFilteredAnimals] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
 
@@ -33,8 +32,7 @@ export default function HeroPage() {
             "Content-Type": "application/json",
           }
         );
-        setLoadedAnimals(response.data.animals);
-        setFilteredAnimals(response.data.animals.slice(0, 6));
+        setFilteredAnimals(response.data.animals.slice(0, 4));
       } catch (error) {}
     };
     fetchAnimals();

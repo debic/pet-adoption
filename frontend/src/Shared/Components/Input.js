@@ -78,6 +78,7 @@ const Input = props => {
       value={inputState.value}
       onChange={changeHandler}
       onBlur={touchHandler}
+      className="custom-select"
     >
       <option value="">Type of animal</option>
       {props.options.map(option => (

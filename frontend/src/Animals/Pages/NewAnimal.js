@@ -80,8 +80,8 @@ export default function NewAnimal() {
     <>
       <ErrorModal error={error} onClear={clearError} />
       <section className="form-section">
-      <h2 className="animals-section-title">Just Arriving!</h2>
-      <p>let's find a home for this animal</p>
+      <h2 className="animals-section-title">Introduce a New Friend</h2>
+      <p className="animals-section-text">let's find a home for this animal</p>
 
       <form className="animal-form" onSubmit={animalSubmitHandler}>
         {isLoading && <LoadingSpinner asOverlay/>}
@@ -165,7 +165,7 @@ export default function NewAnimal() {
         />
 
         <Button basic type="submit" disabled={!formState.isValid}>
-          ADD ANIMAL
+          Add Animal
         </Button>
       </form>
       </section>
