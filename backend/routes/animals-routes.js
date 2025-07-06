@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const animalsControllers = require('../controllers/animal-controller')
 const {check} = require("express-validator")
+const fileUpload = require('../middleware/file-upload')
 
 router.get('/:aId', animalsControllers.getAnimalById);
 
@@ -14,6 +15,7 @@ router.get('/user/adopted/:uId', animalsControllers.getAdoptedAnimalsByUserId);
 
 router.post(
     '/', 
+    fileUpload.single('image'),
     [
         check('name')
             .not()
@@ -22,7 +24,6 @@ router.post(
         check('type')
             .not()
             .isEmpty(),
-
         ] ,
     animalsControllers.addAnimal
 )

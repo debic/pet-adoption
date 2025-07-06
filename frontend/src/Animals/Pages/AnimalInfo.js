@@ -65,7 +65,8 @@ export default function AnimalInfo() {
           <div className="animal-info-image-div">
             <img
               className="animal-info-image"
-              src={animalInfo.imageURL}
+             
+              src={`http://localhost:4000/${animalInfo.imageURL}`}
               alt={animalInfo.name}
             />
           </div>

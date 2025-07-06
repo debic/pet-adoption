@@ -1,7 +1,6 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Button from "../../Shared/Components/Button";
 import Modal from "../../Shared/Components/Modal";
-import { AuthContext } from "../../Shared/Context/auth-context";
 import "../Components/AnimalItem.css";
 import { Link } from "react-router-dom";
 import ErrorModal from "../../Shared/Components/UIElements/ErrorModal";
@@ -9,12 +8,11 @@ import LoadingSpinner from "../../Shared/Components/UIElements/LoadingSpinner";
 import useHttpClient from "../../Shared/Hooks/http-hook";
 
 export default function AnimalItem(props) {
-  const auth = useContext(AuthContext);
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
-  const showDeleteWarningHandler = () => {
-    setShowConfirmModal(true);
-  };
+  // const showDeleteWarningHandler = () => {
+  //   setShowConfirmModal(true);
+  // };
 
   const cancelDeleteHandler = () => {
     setShowConfirmModal(false);
@@ -73,7 +71,7 @@ export default function AnimalItem(props) {
         <div className="animal-item" style={{ backgroundColor: bgColor }}>
           {isLoading && <LoadingSpinner asOverlay />}
           <div className="animal-item-image-div">
-            <img className="animal-item-image" src={props.image} alt="animal" />
+            <img className="animal-item-image" src={`http://localhost:4000/${props.image}`} alt="animal" />
           </div>
           <div className="animal-item-info">
             <div className="animal-item-title">

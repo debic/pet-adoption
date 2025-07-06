@@ -147,8 +147,7 @@ const addAnimal = async (req, res, next) => {
   const newAnimal = new Animal({
     name,
     info,
-    imageURL:
-      "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/15665/production/_107435678_perro1.jpg.webp",
+    imageURL:req.file.path,
     type,
     age,
     weight,
@@ -157,6 +156,8 @@ const addAnimal = async (req, res, next) => {
     currentlyStyaingWith,
     status,
   });
+  console.log(newAnimal)
+
 //here we see if there is an user with the existing ID
 let user;
 try {

@@ -10,7 +10,6 @@ export default function ImageUpload(props) {
 
  useEffect(() => {
   if (!file) {
-    // ✅ muy importante: registrar el campo como inválido si no hay archivo
     props.onInput(props.id, null, false);
     return;
   }
@@ -18,7 +17,6 @@ export default function ImageUpload(props) {
   const fileReader = new FileReader();
   fileReader.onload = () => {
     setPrevUrl(fileReader.result);
-    // ✅ marcar como válido una vez cargado
     props.onInput(props.id, file, true);
   };
   fileReader.readAsDataURL(file);
@@ -26,7 +24,6 @@ export default function ImageUpload(props) {
 
 
 const pickedHandler = event =>{
-  console.log("cdfs")
   let pickedFile;
   let fileIsValid = isValid
   if(event.target.files && event.target.files.length === 1){
@@ -42,7 +39,6 @@ const pickedHandler = event =>{
 }
 
   const pickImageHandler = () => {
-    console.log("df")
     filePickerRef.current.click();
   };
   return (

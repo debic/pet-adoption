@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import "./Auth.css";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Card from "../../Shared/Components/Card";
 import Input from "../../Shared/Components/Input";
 import Button from "../../Shared/Components/Button";
