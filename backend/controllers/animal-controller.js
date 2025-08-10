@@ -1,4 +1,4 @@
-const uuid = require("uuid");
+const fs = require('fs')
 const { validationResult } = require("express-validator");
 const HttpError = require("../models/http-error");
 const Animal = require("../models/animals");
@@ -280,35 +280,78 @@ try {
 
 
 
+// const deleteAnimalById = async (req, res, next) => {
+//   const animalId = req.params.aid;
+
+//   let animal;
+// try {
+//     animal = await Animal.findById(animalId).populate('creator');
+//   } catch (err) {
+//     const error = new HttpError(
+//       'Something went wrong, could not delete animal.',
+//       500
+//     );
+//     return next(error);
+//   }
+
+//  if (!animal) {
+//     const error = new HttpError('Could not find animal for this id.', 404);
+//     return next(error);
+//   }
+
+//  const imagePath = animal.image
+
+//   try {
+//     const sess = await mongoose.startSession();
+//     sess.startTransaction();
+//     await animal.remove({session: sess});
+//     animal.creator.animals.pull(animal);
+//     await animal.creator.save({session:sess})
+//     await sess.commitTransaction();
+//   } catch (err) {
+//     const error = new HttpError(
+//       'Something went wrong, could not delete animal.',
+//       500
+//     );
+    
+//     return next(error);
+//   }
+
+//   fs.unlink(imagePath, err =>{
+//     console.log(err, "hola")
+//   })
+
+//   res.status(200).json({ message: 'Deleted animal.' });
+// };
+
+
 const deleteAnimalById = async (req, res, next) => {
   const animalId = req.params.aid;
 
   let animal;
   try {
-    //the populate method only works because we add the ref parameter in the modles files
     animal = await Animal.findById(animalId).populate('creator');
   } catch (err) {
     const error = new HttpError(
-      'Something went wrong, could not find animal.',
+      'Something went wrong, could not delete animal.',
       500
     );
     return next(error);
   }
 
- if(!animal){
-  const error = new HttpError(
-    'Could not find a animal for this id.',
-    500
-  );
-  return next(error);
- }
+  if (!animal) {
+    const error = new HttpError('Could not find animal for this id.', 404);
+    return next(error);
+  }
+
+  const imagePath = animal.image;
 
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-    await animal.deleteOne({session:sess});
+    await animal.remove({ session: sess });
     animal.creator.animals.pull(animal);
-    await animal.creator.save({session:sess})
+    await animal.creator.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError(
@@ -318,9 +361,12 @@ const deleteAnimalById = async (req, res, next) => {
     return next(error);
   }
 
-  res.status(200).json({ message: 'Deleted animal.' });
-};
+  fs.unlink(imagePath, err => {
+    console.log(err);
+  });
 
+  res.status(200).json({ message: 'Deleted place.' });
+};
 
 
 
