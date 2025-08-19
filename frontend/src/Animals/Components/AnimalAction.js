@@ -93,8 +93,9 @@ export default function AnimalActions({ isCreator, animalId, animalInfo, onUpdat
         footerClass="animal-item__modal-actions"
         footer={
           <>
-            <Button inverse onClick={closeModal}>Cancelar</Button>
-            <Button danger onClick={confirmAction}>Confirmar</Button>
+            <Button inverse onClick={confirmAction}>Confirmar</Button>
+            <Button  danger onClick={closeModal}>Cancelar</Button>
+
           </>
         }
       >

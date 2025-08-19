@@ -278,53 +278,6 @@ try {
 
 
 
-
-
-// const deleteAnimalById = async (req, res, next) => {
-//   const animalId = req.params.aid;
-
-//   let animal;
-// try {
-//     animal = await Animal.findById(animalId).populate('creator');
-//   } catch (err) {
-//     const error = new HttpError(
-//       'Something went wrong, could not delete animal.',
-//       500
-//     );
-//     return next(error);
-//   }
-
-//  if (!animal) {
-//     const error = new HttpError('Could not find animal for this id.', 404);
-//     return next(error);
-//   }
-
-//  const imagePath = animal.image
-
-//   try {
-//     const sess = await mongoose.startSession();
-//     sess.startTransaction();
-//     await animal.remove({session: sess});
-//     animal.creator.animals.pull(animal);
-//     await animal.creator.save({session:sess})
-//     await sess.commitTransaction();
-//   } catch (err) {
-//     const error = new HttpError(
-//       'Something went wrong, could not delete animal.',
-//       500
-//     );
-    
-//     return next(error);
-//   }
-
-//   fs.unlink(imagePath, err =>{
-//     console.log(err, "hola")
-//   })
-
-//   res.status(200).json({ message: 'Deleted animal.' });
-// };
-
-
 const deleteAnimalById = async (req, res, next) => {
   const animalId = req.params.aid;
 
@@ -344,14 +297,22 @@ const deleteAnimalById = async (req, res, next) => {
     return next(error);
   }
 
-  const imagePath = animal.image;
+  const imagePath = animal.imageURL;
+
 
   try {
     const sess = await mongoose.startSession();
     sess.startTransaction();
-    await animal.remove({ session: sess });
-    animal.creator.animals.pull(animal);
-    await animal.creator.save({ session: sess });
+    await Animal.deleteOne({ _id: animalId }, { session: sess });
+if (animal.creator.postedAnimals) {
+  animal.creator.postedAnimals.pull(animal._id);
+}
+if (animal.creator.fosteredAnimals) {
+  animal.creator.fosteredAnimals.pull(animal._id);
+}
+if (animal.creator.adoptedAnimals) {
+  animal.creator.adoptedAnimals.pull(animal._id);
+}    await animal.creator.save({ session: sess });
     await sess.commitTransaction();
   } catch (err) {
     const error = new HttpError(
@@ -365,7 +326,7 @@ const deleteAnimalById = async (req, res, next) => {
     console.log(err);
   });
 
-  res.status(200).json({ message: 'Deleted place.' });
+  res.status(200).json({ message: 'Deleted animal.' });
 };
 
 
