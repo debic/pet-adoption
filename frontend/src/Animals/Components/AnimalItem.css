@@ -30,7 +30,10 @@
 }
 
 .animal-item-gender{
-    width: 1.5vw;
+    width: 2.5vw;
+        position: absolute;
+      top: 10%; 
+  left: 80%; 
 }
 
 .animal-item-image-div{
@@ -38,15 +41,15 @@
    padding-bottom: 0px;
    overflow: hidden;
    border-radius: 0.8vw;
-
+    position: relative;
 }
 
 .animal-item-image{
     width: 100%;
     height: 100%;
     object-fit: cover;
-   
 }
+
 
 .animal-item-info{
     padding: 2vw;
