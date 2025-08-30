@@ -6,7 +6,7 @@ import NewAnimal from './Animals/Pages/NewAnimal';
 import MainNavigation from './Shared/Components/MainNavigation'
 import Footer from './Shared/Components/NavigationElements/Footer';
 import UserAnimals from './Animals/Pages/UserAnimals'
-import HeroPage from './Animals/Pages/HeroPage'
+import HeroPage from './Animals/Pages/HomePage'
 import AnimalInfo from './Animals/Pages/AnimalInfo'
 import UpdateAnimal from './Animals/Pages/UpdateAnimal';
 import Auth from './Users/Pages/Auth'

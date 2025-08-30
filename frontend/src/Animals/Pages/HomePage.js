@@ -3,10 +3,11 @@ import AnimalList from "../Components/AnimalsList";
 import LoadingSpinner from "../../Shared/Components/UIElements/LoadingSpinner";
 import useHttpClient from "../../Shared/Hooks/http-hook";
 import Button from "../../Shared/Components/Button";
-import "./HeroPage.css";
+import "./HomePage.css";
 import "../Components/AnimalList.css";
 
 import HeroCats from "../../Style/IMG/heroImage.jpeg";
+import Heroicons from "../../Style/IMG/icon.svg"
 import SocialImage from "../../Style/IMG/social.svg";
 import Value1 from "../../Style/IMG/values-1.svg";
 import Value2 from "../../Style/IMG/values-2.svg";
@@ -17,9 +18,10 @@ import Dog from "../../Style/IMG/dog.jpg";
 import CircleType from 'circletype'; 
 
 
-export default function HeroPage() {
+export default function HomePage() {
   const [filteredAnimals, setFilteredAnimals] = useState();
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
+
 
   useEffect(() => {
     const fetchAnimals = async () => {
@@ -44,8 +46,24 @@ export default function HeroPage() {
     if (circleRef.current) {
       const circleType = new CircleType(circleRef.current);
     circleType.radius(120);
-  
     }
+      const items = document.querySelectorAll('.values-section-single-item');
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target); // solo una vez
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  items.forEach(item => observer.observe(item));
+
+  return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -69,6 +87,7 @@ export default function HeroPage() {
         <div className="hero-round-corners">
           <div className="image-hero-div">
             <img className="image-hero" src={HeroCats} alt="logo"></img>
+            <img className="icon-hero" src={Heroicons} alt="logo"></img>
           </div>
           <div className="info-hero">
             <div className="info-hero-size">
@@ -98,23 +117,23 @@ export default function HeroPage() {
         <div className="values-section-items">
           <div className="values-section-single-item values-section-dark-brown rotate-left">
             <img className="values-icon" src={Value1} alt="logo"></img>
-            <p className="white-text">Creating Happy Endings</p>
+            <p className="white-text value-text">Creating Happy Endings</p>
           </div>
           <div className="values-section-single-item values-section-white rotate-right">
             <img className="values-icon" src={Value2} alt="logo"></img>
-            <p>Finding Responsible Owners</p>
+            <p className="value-text">Finding Responsible Owners</p>
           </div>
           <div className="values-section-single-item values-section-grey rotate-left">
             <img className="values-icon" src={Value3} alt="logo"></img>
-            <p>Clean and Safe Environment</p>
+            <p className="value-text">Clean and Safe Environment</p>
           </div>
           <div className="values-section-single-item values-section-white rotate-right">
             <img className="values-icon" src={Value4} alt="logo"></img>
-            <p>Transparent Adoption Process</p>
+            <p className="value-text">Transparent Adoption Process</p>
           </div>
           <div className="values-section-single-item values-section-grey rotate-left">
             <img className="values-icon" src={Value5} alt="logo"></img>
-            <p>Transparent Adoption Process</p>
+            <p className="value-text">Transparent Adoption Process</p>
           </div>
         </div>
       </section>

@@ -65,7 +65,7 @@ export default function NewAnimal() {
       formData.append("gender", formState.inputs.gender.value);
       formData.append("age", formState.inputs.age.value);
       formData.append("weight", formState.inputs.weight.value);
-formData.append("creator", auth.userId);
+      formData.append("creator", auth.userId);
       formData.append("currentlyStyaingWith", auth.userId);
       formData.append("status", "In adoption");
       formData.append("image", formState.inputs.image.value);
