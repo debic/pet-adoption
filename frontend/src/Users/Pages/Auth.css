@@ -5,8 +5,8 @@
   overflow: hidden;
   background-color: #f4f3f2;
 }
-.switch-button{
-    width: max-content;
+.switch-button {
+  width: max-content;
 }
 
 .auth-image-div {
@@ -41,36 +41,42 @@
   margin-bottom: 2vw;
 }
 
-@media only screen and (max-width: 768px) {
-    .auth-section{
-        flex-direction: column-reverse;
-        align-items: center;
-    }
-    .auth-image-div{
-        width: 100vw;
-        margin-top: -10vw;
-    }
-    .authentication-div {
-        height: 150vw;
-        margin: 0vw;
-        width: 100vw;
-    }
-
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .auth-section {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .auth-image-div {
+    width: 100vw;
+    margin-top: -10vw;
+  }
+  .authentication-div {
+    height: 150vw;
+    margin: 0vw;
+    width: 100vw;
+  }
 }
 
-
-@media only screen and (max-width: 480px) {
-
-    .auth-image-div{
-        width: 100vw;
-        margin-top: -10vw;
-    }
-    .authentication-div {
-        height: 110vh;
-        margin: 0vw;
-        width: 100vw;
-    }
-    .authentication form {
-        margin-bottom: 6vw;
-    }
+@media only screen and (max-width: 767px) {
+  .auth-section {
+    flex-direction: column-reverse;
+    align-items: center;
+    height: auto;
   }
+  .auth-image-div {
+    width: 100vw;
+    margin-top: -10vw;
+  }
+  .auth-image {
+    height: 80vw;
+  }
+  .authentication-div {
+    padding: 10vh 0vw;
+    margin: 0vw;
+    width: 100vw;
+  }
+  .authentication form {
+    margin-bottom: 6vw;
+    text-align: center;
+  }
+}

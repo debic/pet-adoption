@@ -49,10 +49,6 @@
   border-bottom: 1px solid #272727;
 }
 
-.main-navigation__header-nav {
-  display: none;
-}
-
 .main-navigation__side-menu {
   height: 100%;
 }
@@ -68,52 +64,95 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-@media (min-width: 768px) {
-  .nav-links {
-    flex-direction: row;
-  }
-
-  .nav-links li {
-    margin: 0 0.5rem;
-  }
-
-
-
-  .nav-links button {
-    border: 1px solid #5b3a21;
-    background: #ffffff;
-    color: #5b3a21;
-    background: transparent;
-    font-size: 1vw;
-    font-weight: 400;
-  }
-
-  .nav-links button:hover {
-        border: 1px solid #5b3a21;
-
-    background: #5b3a21;
-    color: #ffffff;
-  }
-  .nav-links button:active {
-    background: #ffffff;
-    color: #292929;
-  }
-
-  .main-navigation__menu-btn {
-    display: none;
-  }
-
-  .main-navigation__header-nav {
-    display: block;
-  }
-
-  .main-header {
-    justify-content: space-between;
-  }
+.main-navigation__menu-btn {
+  display: none;
 }
 
-@media only screen and (max-width: 768px) {
+.nav-links {
+  flex-direction: row;
+}
+
+.nav-links li {
+  margin: 0 0.5rem;
+}
+
+.nav-links button {
+  border: 1px solid #5b3a21;
+  background: #ffffff;
+  color: #5b3a21;
+  background: transparent;
+  font-size: 1vw;
+  font-weight: 400;
+}
+
+.nav-links button:hover {
+  border: 1px solid #5b3a21;
+  background: #5b3a21;
+  color: #ffffff;
+}
+.nav-links button:active {
+  background: #ffffff;
+  color: #292929;
+}
+
+.main-navigation__menu-btn {
+  display: none;
+}
+
+.main-header {
+  justify-content: space-between;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+}
+
+@media (max-width: 767px) {
   .logo {
     width: 20vw !important;
   }
+  .nav-links {
+  flex-direction: column;
+  gap: 10vw;
+}
+  .main-navigation__menu-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 5;
+    margin-left: 2vw;
+  }
+
+  .secondaryBTN{
+    font-size: 5vw;
+  }
+
+  .main-navigation__menu-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #292929;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .main-navigation__header-nav {
+    display: none;
+  }
+
+  .button-auth-login {
+    padding: 2.5vw 5vw !important;
+    border-radius: 0.5vw;
+  
+}
+.button-auth-signUp {
+  background-color: #5b3a21;
+   padding: 2.5vw 5vw !important;
+  border-radius: 0.5vw;
+
+}
 }

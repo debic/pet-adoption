@@ -85,7 +85,7 @@ a{
 
 
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px)  {
 
   h1{
     font-size: 6vw;
@@ -104,7 +104,7 @@ p{
 }
 
 
-@media only screen and (max-width: 480px) {
+@media (max-width: 767px) {
   h1{
     font-size: 12vw;
     margin: 0%;
@@ -120,4 +120,10 @@ p{
   p{
     font-size: 4.5vw !important;
   }
+  a{
+  font-size: 4.5vw;
+  font-weight: 300;
+  margin: 0px;
+  color: black;
+}
 }

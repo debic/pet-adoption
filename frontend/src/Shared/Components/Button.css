@@ -83,7 +83,7 @@
   color: white;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
   .button {
     font-size: 2vw !important;
     padding: 1vw 2vw 1vw 2vw !important;
@@ -92,11 +92,15 @@
   }
 }
 
-@media only screen and (max-width: 500px) {
+@media (max-width: 767px) {
   .button {
     font-size: 5vw !important;
     padding: 2vw 6vw 2vw 6vw !important;
     width: max-content;
     border-radius: 1.5vw;
   }
+
+  .button-link{
+    font-size: 4.5vw!important;
+}
 }
