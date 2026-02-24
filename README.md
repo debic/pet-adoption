@@ -1,7 +1,7 @@
-#Pet adoption website
+# Pet adoption website
 A full‑stack web application for managing and promoting pet adoption. Users can browse pets, and authenticated users can create, edit, and manage animal listings.
 
-##Features
+## Features
 
 - Browse available pets for adoption
 - User authentication (signup / login)
