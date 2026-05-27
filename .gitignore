@@ -30,3 +30,6 @@ Thumbs.db
 
 # Misc
 *.tgz
+frontend/src/Style/IMG/auth.jpg
+frontend/src/Style/IMG/dog.jpg
+frontend/src/Style/IMG/social.svg

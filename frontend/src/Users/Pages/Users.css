@@ -1,0 +1,42 @@
+ul{
+ list-style-type: none;
+}
+
+a{
+ text-decoration: none;
+}
+
+li{
+ text-decoration: none;
+}
+
+
+.userItemContent{
+    width: max-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5vw 2vw;
+    background-color: aliceblue;
+    border-radius: 0.5vw;
+
+}
+
+.userItemContainer :hover{
+    background-color: rgb(195, 204, 212);
+}
+
+.userItem{
+    width: max-content;
+}
+
+.userItemImage{
+    border-radius: 100px;
+    width: 5vw;
+    margin-right: 1vw;
+}
+
+.Userslist{
+    margin: 2vw;
+    padding: 0vw;
+}

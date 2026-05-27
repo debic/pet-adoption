@@ -1,0 +1,106 @@
+/* Basic Buttons */
+
+
+.button {
+    font: inherit;
+    font-size: 1vw;
+    padding: 0.6vw 1.3vw !important;
+    border-radius: 0.5vw;
+    border: 0px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    z-index: 1;
+    width: max-content;
+  }
+
+  /* Brown */
+
+  .button-brown{
+    background-color: #8A5D3B;
+    color: white;
+  }
+
+  .button-brown:hover{
+    background-color: #7a5030;
+  }
+
+  /* Inverse */
+
+  .button-inverse{
+    border: 2px solid #8a5d3b;
+    color: #8a5d3b;
+  }
+
+  .button-inverse:hover{
+    color: #ffffff;
+    background-color: #8a5d3b;
+  }
+
+  /* Secondary */
+  .button-basic{
+    background-color: #CB534E;
+    color: white;
+  }
+
+  .button-basic:hover{
+    background-color: #a43b37;
+  }
+  .button:active {
+    background: #7a5030;
+    border-color: #7a5030;
+  }
+
+  /* Delete */
+  .button-delete{
+    background: white;
+    color: #8a5d3b;
+  }
+
+ /* Disabled */
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+ /* Link */
+
+.button-link{
+    background-color: transparent;
+    margin: 0vw;
+    padding: 0% !important;
+    color: #8A5D3B;
+}
+
+ /* Form */
+ .button-form{
+  width: 100%;
+  background-color: #8A5D3B;
+  color: white;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .button {
+    font-size: 2vw !important;
+    padding: 1vw 2vw 1vw 2vw !important;
+    margin: 0px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 767px) {
+  .button {
+    font-size: 5vw !important;
+    padding: 2vw 6vw 2vw 6vw !important;
+    width: max-content;
+    border-radius: 1.5vw;
+  }
+
+  .button-link{
+    font-size: 4.5vw!important;
+}
+}
