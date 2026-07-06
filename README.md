@@ -26,19 +26,12 @@ My goal was to use my skills to give these foundations a professional digital pr
 
 ---
 
-## 📈 Technical Challenges & Wins
-
-> 💡 **The state management puzzle:** Implementing the dynamic filters was a fun challenge! I learned a lot about optimizing re-renders when updating multiple state variables simultaneously. The result is a snappy, real-time filtering experience that users love.
-
-This project allowed me to solidify my skills in building interactive, data-driven interfaces and reinforced my belief that great tech should always serve a human (or animal!) purpose.
-
----
 
 ### 📫 Let's talk about tech & tails!
 
 If you want to discuss state management, UX for social good, or just share pictures of your pets, feel free to reach out!
 
-* **LinkedIn:** [[Your LinkedIn Profile Link](https://www.linkedin.com/in/debi-codriansky-834655179/)]
+* **LinkedIn:** [[LinkedIn Profile Link](https://www.linkedin.com/in/debi-codriansky-834655179/)]
 * **GitHub:** [@debic](https://github.com/debic)
 
 ---
