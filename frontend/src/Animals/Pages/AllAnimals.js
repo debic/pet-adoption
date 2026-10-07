@@ -33,7 +33,7 @@ export default function AllAnimals(props) {
             <AnimalList items={loadedAnimals} />
           )}
           {!loadedAnimals && (
-            <p>No pets find</p>
+            <p>No pets found</p>
           )}
         </div>
    </div>

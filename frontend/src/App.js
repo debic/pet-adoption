@@ -10,22 +10,29 @@ import HeroPage from './Animals/Pages/HomePage'
 import AnimalInfo from './Animals/Pages/AnimalInfo'
 import UpdateAnimal from './Animals/Pages/UpdateAnimal';
 import Auth from './Users/Pages/Auth'
+import AdminDashboard from './Users/Pages/AdminDashboard'
 import { AuthContext } from './Shared/Context/auth-context';
 import './Style/fonts/fonts.css'
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [userId, setUserId] = useState(false)
+  const [token, setToken] = useState(null)
+  const [isAdmin, setIsAdmin] = useState(false)
 
-  const login = useCallback((uid) => {
+  const login = useCallback((uid, userToken, admin = false) => {
     setIsLoggedIn(true)
     setUserId(uid)
-  })
+    setToken(userToken)
+    setIsAdmin(!!admin)
+  }, [])
 
   const logout = useCallback(() => {
     setIsLoggedIn(false)
     setUserId(null)
-  })
+    setToken(null)
+    setIsAdmin(false)
+  }, [])
 
   let routes
 
@@ -39,6 +46,7 @@ function App() {
         <Route path="/:userId/animals" exact> <UserAnimals/></Route>
         <Route path="/animal/new" exact> <NewAnimal/></Route>
         <Route path="/animals/:animalId/edit" exact> <UpdateAnimal/></Route>
+        {isAdmin && <Route path="/admin" exact> <AdminDashboard/></Route>}
         <Redirect to="/"/>
       </Switch>
     )
@@ -57,7 +65,7 @@ function App() {
   }
 
   return (
-  <AuthContext.Provider value={{isLoggedIn:isLoggedIn, userId: userId, login:login, logout:logout}}>
+  <AuthContext.Provider value={{isLoggedIn:isLoggedIn, userId: userId, token: token, isAdmin: isAdmin, login:login, logout:logout}}>
     <Router>
       <MainNavigation/>
       <main>

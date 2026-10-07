@@ -8,13 +8,13 @@ import "../Components/AnimalList.css";
 
 import HeroCats from "../../Style/IMG/heroImage.jpeg";
 import Heroicons from "../../Style/IMG/icon.svg"
-import SocialImage from "../../Style/IMG/social.svg";
+import SocialImage from "../../Style/IMG/social-adopted.svg";
 import Value1 from "../../Style/IMG/values-1.svg";
 import Value2 from "../../Style/IMG/values-2.svg";
 import Value3 from "../../Style/IMG/values-3.svg";
 import Value4 from "../../Style/IMG/values-4.svg";
 import Value5 from "../../Style/IMG/values-5.svg";
-import Dog from "../../Style/IMG/dog.jpg";
+import Dog from "../../Style/IMG/type-dog.png";
 import CircleType from 'circletype'; 
 
 
@@ -145,7 +145,7 @@ export default function HomePage() {
             <AnimalList items={filteredAnimals} />
           )}
           {!filteredAnimals && (
-            <p>No pets find</p>
+            <p>No pets found</p>
           )}
           <div className="animals-section-image-div">
             <img className="animals-section-image" src={Dog} alt="logo"></img>

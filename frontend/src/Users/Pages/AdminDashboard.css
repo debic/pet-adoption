@@ -1,0 +1,269 @@
+.admin-page {
+  background-color: #f4f3f2;
+  padding: clamp(32px, 6vw, 96px) clamp(16px, 12vw, 240px);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 70vh;
+}
+
+.admin-title {
+  font-family: "Nohemi", sans-serif;
+  color: #8a5d3b;
+  font-size: clamp(36px, 4vw, 64px);
+  margin: 0;
+}
+
+/* ===== Totals ===== */
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.admin-stat {
+  background-color: #553e29;
+  color: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.admin-stat:nth-child(2) { background-color: #8a5d3b; }
+.admin-stat:nth-child(3) { background-color: #a48269; }
+.admin-stat:nth-child(4) { background-color: #2d2d2d; }
+
+.admin-stat-number {
+  font-family: "Nohemi", sans-serif;
+  font-size: clamp(28px, 2.6vw, 44px);
+  line-height: 1;
+}
+
+.admin-stat-label {
+  font-size: 14px;
+  font-weight: 300;
+  opacity: 0.85;
+}
+
+/* ===== Search ===== */
+.admin-search {
+  width: 100%;
+  max-width: 420px;
+  padding: 12px 16px;
+  font-size: 16px;
+  border: 1px solid #a48269;
+  border-radius: 8px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.admin-search:focus {
+  outline: 2px solid #8a5d3b;
+  outline-offset: 1px;
+}
+
+/* ===== User cards ===== */
+.admin-user-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.admin-user {
+  background-color: white;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.admin-user-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-user-avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #8a5d3b;
+  flex-shrink: 0;
+}
+
+.admin-user-id {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.admin-user-name {
+  font-family: "Nohemi", sans-serif;
+  font-size: 20px;
+  color: #2d2d2d;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-transform: capitalize;
+}
+
+.admin-badge {
+  font-family: sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background-color: #8a5d3b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.admin-user-email {
+  font-size: 14px;
+  font-weight: 300;
+  color: #6b6b6b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.admin-user-link {
+  font-size: 14px;
+  color: #8a5d3b;
+  border: 1px solid #8a5d3b;
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.admin-user-link:hover {
+  background-color: #8a5d3b;
+  color: white;
+}
+
+.admin-user-groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.admin-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-group-title {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #553e29;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0dddc;
+}
+
+.admin-group-count {
+  background-color: #f4f3f2;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 12px;
+}
+
+.admin-animal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.admin-animal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.admin-animal:hover {
+  background-color: #f4f3f2;
+}
+
+.admin-animal-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  object-fit: cover;
+  background-color: #e0dddc;
+  flex-shrink: 0;
+}
+
+.admin-animal-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.admin-animal-name {
+  font-size: 15px;
+  color: #2d2d2d;
+  text-transform: capitalize;
+}
+
+.admin-animal-meta {
+  font-size: 13px;
+  font-weight: 300;
+  color: #6b6b6b;
+  text-transform: capitalize;
+}
+
+.admin-empty {
+  font-size: 14px;
+  font-weight: 300;
+  color: #8f8f8f;
+}
+
+/* ===== Tablet ===== */
+@media (max-width: 1024px) {
+  .admin-user-groups {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 600px) {
+  .admin-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .admin-user {
+    padding: 16px;
+  }
+
+  .admin-user-header {
+    flex-wrap: wrap;
+  }
+
+  .admin-user-link {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}

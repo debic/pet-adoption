@@ -89,19 +89,19 @@ export default function AnimalActions({ isCreator, animalId, animalInfo, onUpdat
       <Modal
         show={!!pendingAction && pendingAction !== "edit"}
         onCancel={closeModal}
-        header="¿Estás segura?"
+        header="Are you sure?"
         footerClass="animal-item__modal-actions"
         footer={
           <>
-            <Button inverse onClick={confirmAction}>Confirmar</Button>
-            <Button  danger onClick={closeModal}>Cancelar</Button>
+            <Button inverse onClick={confirmAction}>Confirm</Button>
+            <Button  danger onClick={closeModal}>Cancel</Button>
 
           </>
         }
       >
-        {pendingAction === "delete" && <p>¿Seguro que querés eliminar este animal?</p>}
-        {pendingAction === "adopt" && <p>¿Seguro que querés adoptar este animal?</p>}
-        {pendingAction === "foster" && <p>¿Seguro que querés acoger este animal?</p>}
+        {pendingAction === "delete" && <p>Are you sure you want to delete this pet?</p>}
+        {pendingAction === "adopt" && <p>Are you sure you want to adopt this pet?</p>}
+        {pendingAction === "foster" && <p>Are you sure you want to foster this pet?</p>}
       </Modal>
 
       <div className="animal-info-btns">

@@ -23,9 +23,46 @@ My goal was to use my skills to give these foundations a professional digital pr
 * **Intuitive "Adoption Flow":** A simulated, step-by-step application process designed to minimize user friction.
 * **Responsive & Accessible:** Built to ensure that everyone, on any device, can find their new best friend.
 
+## 🔐 Admin Dashboard
+
+Users with admin access get an extra **Admin** link in the navigation that opens a private dashboard (`/admin`):
+
+* **Overview:** totals for registered users, posted, fostered and adopted pets.
+* **Every user at a glance:** name, email and the pets they posted, fostered or adopted, each linking to the pet's profile.
+* **Search:** filter users by name or email.
+* **User profiles:** "View profile" opens `{Name}'s Profile` with all of that user's pets.
+
+The dashboard data is protected on the backend: the `/api/users/admin/overview` endpoint only responds to requests carrying a valid token from an admin account.
+
+### Setting up an admin
+
+Admins are defined by email in `backend/.env` (comma-separated list):
+
+```env
+MONGO_URI=your_mongodb_connection_string
+ADMIN_EMAILS=admin@example.com,another@example.com
+```
+
+Restart the backend after editing `.env`, then sign up or log in with one of those emails.
+
 
 ---
 
+
+## 🤖 Built with AI
+
+I designed and built the core of this app myself: the visual design, the React frontend and the Node/Express/MongoDB backend.
+
+In later iterations I worked with **Claude Code** as an AI pair programmer to move faster, while reviewing and testing every change myself. AI helped me:
+
+* **Debug:** tracked down a mismatch between the backend response and the frontend that was breaking signup and login.
+* **Improve responsive design:** reworked the pet cards for tablet and mobile (grid layout, auto height, readable type).
+* **Build the Admin Dashboard:** role-based access with protected API routes and JWT checks.
+* **Polish:** consistent English copy across the UI and cleaner configuration with environment variables.
+
+For me, AI is a tool that amplifies a designer-developer workflow: I keep ownership of the product and design decisions, and use AI to iterate faster on implementation.
+
+---
 
 ### 📫 Let's talk about tech & tails!
 

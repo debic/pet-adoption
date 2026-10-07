@@ -14,7 +14,7 @@ import {
 import { useForm } from "../../Shared/Hooks/form-hook";
 import { AuthContext } from "../../Shared/Context/auth-context";
 import useHttpClient from "../../Shared/Hooks/http-hook";
-import authImage from "../../Style/IMG/auth.jpg";
+import authImage from "../../Style/IMG/heroImage.jpeg";
 import ImageUpload from "../../Shared/Components/UIElements/ImageUpload";
 
 export default function Auth() {
@@ -94,10 +94,14 @@ export default function Auth() {
             "Content-Type": "application/json",
           }
         );
-        auth.login(responseData.data.user.id);
-        console.log(responseData.data.user.id);
+        auth.login(
+          responseData.data.userId,
+          responseData.data.token,
+          responseData.data.isAdmin
+        );
+        console.log(responseData.data.userId);
       } catch (error) {
-        console.log("Error en login:", error);
+        console.log("Login error:", error);
         // No necesitas hacer más, el error ya fue capturado en el hook y se muestra con el modal
       }
     } else {
@@ -112,10 +116,14 @@ export default function Auth() {
           "POST",
           formData,
         );
-        auth.login(responseData.data.user.id);
-        console.log(responseData.data.user.id);
+        auth.login(
+          responseData.data.userId,
+          responseData.data.token,
+          responseData.data.isAdmin
+        );
+        console.log(responseData.data.userId);
       } catch (error) {
-        console.log("Error en signup:", error);
+        console.log("Signup error:", error);
       }
     }
   };

@@ -45,11 +45,11 @@ export default function useHttpClient() {
       setIsloading(false);
   
       if (error.response) {
-        setError(error.response.data.message || 'Algo salió mal, por favor intente de nuevo');
+        setError(error.response.data.message || 'Something went wrong, please try again.');
       } else if (error.request) {
-        setError('No hay respuesta del servidor. Por favor, inténtalo nuevamente.');
+        setError('No response from the server. Please try again.');
       } else {
-        setError(error.message || 'Algo salió mal, por favor intente de nuevo');
+        setError(error.message || 'Something went wrong, please try again.');
       }
   
       throw error;

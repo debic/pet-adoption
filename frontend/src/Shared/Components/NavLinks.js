@@ -33,6 +33,12 @@ export default function NavLinks(props) {
         </li>
       )}
 
+      {auth.isLoggedIn && auth.isAdmin && (
+        <li>
+          <NavLink className="secondaryBTN" to="/admin">Admin</NavLink>
+        </li>
+      )}
+
       {!auth.isLoggedIn && (
         <>
           <li>

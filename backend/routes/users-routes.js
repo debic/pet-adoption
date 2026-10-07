@@ -3,8 +3,13 @@ const router = express.Router();
 const usersController = require('../controllers/users-controller')
 const {check} = require('express-validator')
 const fileUpload = require('../middleware/file-upload')
+const checkAdmin = require('../middleware/check-admin')
 
 router.get('/', usersController.getUsers);
+
+router.get('/admin/overview', checkAdmin, usersController.getAdminOverview);
+
+router.get('/:uid', usersController.getUserById);
 
 router.post(
     '/signup', 

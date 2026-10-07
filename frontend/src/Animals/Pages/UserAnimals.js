@@ -1,21 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AnimalList from "./../Components/AnimalsList";
 import ErrorModal from "../../Shared/Components/UIElements/ErrorModal";
 import LoadingSpinner from "../../Shared/Components/UIElements/LoadingSpinner";
 import useHttpClient from "../../Shared/Hooks/http-hook";
 import "../Pages/UserAnimals.css";
+import { AuthContext } from "../../Shared/Context/auth-context";
 export default function UserAnimals() {
   const { isLoading, error, sendRequest, clearError } = useHttpClient();
   const [fostereddUsersAnimals, setFosteredUsersAnimals] = useState();
   const [postedUsersAnimals, setPostedUsersAnimals] = useState();
   const [adoptedUsersAnimals, setAdoptedUsersAnimals] = useState();
+  const [userName, setUserName] = useState("");
+  const auth = useContext(AuthContext);
 
   const userId = useParams().userId;
+  const isOwnProfile = auth.userId === userId;
 
   useEffect(() => {
     const getAnimalsFromUserId = async (event) => {
       try {
+        const responseUser = await sendRequest(
+          `http://localhost:4000/api/users/${userId}`
+        );
+        setUserName(responseUser.data.user.name);
         const responsePosted = await sendRequest(
           `http://localhost:4000/api/animals/user/posted/${userId}`
         );
@@ -43,7 +51,9 @@ export default function UserAnimals() {
     <>
       <ErrorModal error={error} onClear={clearError} />
       <div className="grey-background">
-        <h2 className="title-page">My Animals</h2>
+        <h2 className="title-page">
+          {isOwnProfile ? "My Animals" : userName && `${userName}'s Profile`}
+        </h2>
 
         {adoptedUsersAnimals?.length === 0 &&
           fostereddUsersAnimals?.length === 0 &&
@@ -59,7 +69,7 @@ export default function UserAnimals() {
             adoptedUsersAnimals.length > 0 && (
               <>
                 <hr />
-                <h3> Aopted animals</h3>
+                <h3>Adopted animals</h3>
                 <div className="animals-section-list">
                   <AnimalList
                     items={adoptedUsersAnimals}
